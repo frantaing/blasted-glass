@@ -21,7 +21,7 @@
     .typing-cursor::after {
         content: '_';
         color: inherit; /* inherit parent color */ 
-        animation: blink 1s step-end infinite;
+        animation: blink 0.7s step-end infinite;
     }
     @keyframes blink {
         from, to { color: transparent; /* make the cursor transparent */ }

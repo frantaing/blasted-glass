@@ -25,43 +25,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2. FUNCTION: handle typing for one item in queue
   const typeText = (item, options = {}) => {
-    const { typingSpeed = 10, keepCursor = false } = options; // typing speed here!
-
+    const { typingSpeed = 10, keepCursor = false, preTypingDelay = 0 } = options; // typing speed here!
     return new Promise(resolve => {
-      let i = 0;
-      // add cursor to parent element
+      // add cursor immediately so it blinks during the delay
       item.element.classList.add("typing-cursor");
 
-      const typingInterval = setInterval(() => {
-        if (i < item.text.length) {
-          // append character to the specific text node
-          item.node.textContent += item.text.charAt(i);
-          i++;
-        } else {
-          clearInterval(typingInterval);
-          // if not the last element, remove the cursor
-          if (!keepCursor) {
-            item.element.classList.remove("typing-cursor");
+      // create a delay before typing starts
+      setTimeout(() => {
+        const typingInterval = setInterval(() => {
+          if (i < item.text.length) {
+            item.node.textContent += item.text.charAt(i);
+            i++;
+          } else {
+            clearInterval(typingInterval);
+            if (!keepCursor) {
+              item.element.classList.remove("typing-cursor");
+            }
+            resolve();
           }
-          resolve(); // animation is done!
-        }
-      }, typingSpeed);
+        }, typingSpeed);
+      }, preTypingDelay); // delay value
+      let i = 0;
     });
   };
   // 3. ASYNCH FUNCTION: run animations in sequence
   const runAnimations = async () => {
+    const initialBlinkDelay = 1700; // set delay here (miliseconds)
+
     for (let i = 0; i < animationQueue.length; i++) {
-      // small delay before starting the next line
       if (i > 0) {
         await new Promise(resolve => setTimeout(resolve, 200));
       }
       
+      const isFirstElement = i === 0;
       const isLastElement = i === animationQueue.length - 1;
-      await typeText(animationQueue[i], { keepCursor: isLastElement });
+
+      // pass initial delay only for the first element
+      const options = {
+        keepCursor: isLastElement,
+        preTypingDelay: isFirstElement ? initialBlinkDelay : 0
+      };
+
+      await typeText(animationQueue[i], options);
     }
   };
-  // delay
-  setTimeout(() => {
-    runAnimations(); // start animation
-  }, 500);
+  runAnimations(); // start animation
 });
