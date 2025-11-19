@@ -1,1 +1,15 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+@theme {
+    --font-general: "VT323", mono;
+}
+
+@layer utilities {
+    body { @apply min-h-screen bg-[url(/background@pi_slices.gif)] bg-cover bg-top }
+    
+    h1 { @apply text-4xl }
+    p { @apply leading-tight text-lg }
+    a { @apply flex items-center text-lg cursor-pointer hover:font-bold hover:text-black hover:bg-white }
+
+}
