@@ -1,15 +1,36 @@
 @import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+/* theme eh */
 @theme {
     --font-general: "VT323", mono;
 }
 
+/* basic styling */
 @layer utilities {
     body { @apply min-h-screen bg-[url(/background@pi_slices.gif)] bg-cover bg-top }
     
     h1 { @apply text-4xl }
     p { @apply leading-tight text-lg }
-    a { @apply flex items-center text-lg cursor-pointer hover:font-bold hover:text-black hover:bg-white }
+    .navlink { @apply flex items-center text-lg cursor-pointer hover:font-bold hover:text-black hover:bg-white }
+}
 
+/* separate @layer for animations */
+@layer utilities {
+    /* typing */
+    .typing-cursor::after {
+        content: '_';
+        color: inherit; /* inherit parent color */ 
+        animation: blink 0.7s step-end infinite;
+    }
+    @keyframes blink {
+        from, to { color: transparent; /* make the cursor transparent */ }
+        50% { color: inherit; /* make it visible + text color */ }
+    }
+    /* background load */
+    @keyframes powerOn {
+    from { background-color: rgb(0 0 0 / 1); }
+    to { background-color: rgb(0 0 0 / 0.75); }
+    }
+    .animate-overlay-on-load { animation: powerOn 10s ease-out forwards; }
 }
