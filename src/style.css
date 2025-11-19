@@ -12,4 +12,15 @@
     p { @apply leading-tight text-lg }
     a { @apply flex items-center text-lg cursor-pointer hover:font-bold hover:text-black hover:bg-white }
 
+    /* cool typing animation :D */ 
+    .typing-cursor::after {
+        content: '_';
+        /* Use 'inherit' to match the parent's text color */
+        color: inherit; /* inherit parent color */ 
+        animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+        from, to { color: transparent; /* Make the cursor transparent */ }
+        50% { color: inherit; /* make it visible + text color */ }
+    }
 }
