@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }, typingSpeed);
     });
   };
-
   // 3. ASYNCH FUNCTION: run animations in sequence
   const runAnimations = async () => {
     for (let i = 0; i < animationQueue.length; i++) {
@@ -61,7 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
       await typeText(animationQueue[i], { keepCursor: isLastElement });
     }
   };
-
-  // start animation
-  runAnimations();
+  // delay
+  setTimeout(() => {
+    runAnimations(); // start animation
+  }, 500);
 });
