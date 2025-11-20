@@ -32,5 +32,5 @@
     from { background-color: rgb(0 0 0 / 1); }
     to { background-color: rgb(0 0 0 / 0.75); }
     }
-    .animate-overlay-on-load { animation: powerOn 10s ease-out forwards; }
+    .animate-overlay-on-load { animation: powerOn 5s ease-out forwards; }
 }
