@@ -8,8 +8,6 @@
 
 /* basic styling */
 @layer utilities {
-    body { @apply min-h-screen bg-[url(/background@pi_slices.gif)] bg-cover bg-top }
-    
     h1 { @apply text-4xl }
     p { @apply leading-tight text-lg }
     .navlink { @apply flex items-center text-lg cursor-pointer hover:font-bold hover:text-black hover:bg-white }
@@ -32,5 +30,5 @@
     from { background-color: rgb(0 0 0 / 1); }
     to { background-color: rgb(0 0 0 / 0.75); }
     }
-    .animate-overlay-on-load { animation: powerOn 10s ease-out forwards; }
+    .animate-overlay-on-load { animation: powerOn 4s ease-out forwards; }
 }
