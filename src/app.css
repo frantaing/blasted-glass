@@ -1,0 +1,44 @@
+/* src/app.css */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import 'tailwindcss';
+
+@theme {
+    --font-general: "VT323", mono;
+}
+
+@layer utilities {
+    h1 { @apply text-4xl }
+    p { @apply leading-tight text-base }
+    .navlink { @apply flex items-center font-bold text-xl cursor-pointer hover:font-bold hover:text-black hover:bg-white }
+    .navlink::before {
+        color: white;
+        content: '//';
+        margin-right: 10px;
+    }
+    .navlink:hover::before {
+        content: '';
+        margin-right: 0px;
+    }
+}
+
+/* Animations */
+@layer utilities {
+    /* Cursor for Typewriter */
+    .typing-cursor::after {
+        content: '_';
+        color: inherit; /* Inherit parent color */
+        animation: blink 0.7s step-end infinite;
+    }
+    @keyframes blink {
+        from, to { color: transparent; /* Make the cursor transparent */ }
+        50% { color: inherit; /* Make it visible + text color */ }
+    }
+
+    /* Background load */
+    @keyframes powerOn {
+    from { background-color: rgb(0 0 0 / 1); }
+    to { background-color: rgb(0 0 0 / 0.75); }
+    }
+    .animate-overlay-on-load { animation: powerOn 4s ease-out forwards; }
+}
