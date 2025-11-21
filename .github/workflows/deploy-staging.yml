@@ -1,15 +1,24 @@
-name: Deploy via gh-pages package
+name: Deploy Staging to GitHub Pages
 on:
   push:
-    branches: [ deploy-test ]
+    branches: [ deploy-test ] # ONLY watches deploy-test
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-staging"
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: staging # Deply to staging environment
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,11 +34,19 @@ jobs:
         
       - name: Build SvelteKit App
         run: npm run build
-        env:
-          NODE_ENV: production
-        
-      - name: Deploy to gh-pages branch
+
+      - name: Debug - List build contents
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          npm run deploy
+          echo "Contents of build/_app/immutable/entry:"
+          ls -la build/_app/immutable/entry/
+          echo "Checking index.html references:"
+          grep -o 'import(".*")' build/index.html || true
+              
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './build'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
