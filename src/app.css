@@ -11,6 +11,15 @@
     h1 { @apply text-4xl }
     p { @apply leading-tight text-base }
     .navlink { @apply flex items-center font-bold text-xl cursor-pointer hover:font-bold hover:text-black hover:bg-white }
+    .navlink::before {
+        color: white;
+        content: '//';
+        margin-right: 10px;
+    }
+    .navlink:hover::before {
+        content: '';
+        margin-right: 0px;
+    }
 }
 
 /* Animations */
