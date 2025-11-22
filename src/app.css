@@ -10,29 +10,22 @@
 @layer utilities {
     h1 { @apply text-4xl }
     p { @apply leading-tight text-base }
-    .navlink { @apply flex items-center font-bold text-xl cursor-pointer hover:font-bold hover:text-black hover:bg-white }
-    .navlink::before {
-        color: white;
-        content: '//';
-        margin-right: 10px;
-    }
-    .navlink:hover::before {
-        content: '';
-        margin-right: 0px;
-    }
+    .navlink { @apply font-bold text-xl cursor-pointer }
 }
 
 /* Animations */
 @layer utilities {
     /* Cursor for Typewriter */
     .typing-cursor::after {
-        content: '_';
-        color: inherit; /* Inherit parent color */
-        animation: blink 0.7s step-end infinite;
+        content: "_";
+        display: inline-block;
+        margin-left: 2px;
+        animation: blink 0.8s infinite;
     }
+
     @keyframes blink {
-        from, to { color: transparent; /* Make the cursor transparent */ }
-        50% { color: inherit; /* Make it visible + text color */ }
+        0%, 50% { opacity: 1; }
+        50.01%, 100% { opacity: 0; }
     }
 
     /* Background load */
