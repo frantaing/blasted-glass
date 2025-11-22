@@ -118,10 +118,13 @@ export function typewriter(element: HTMLElement, text: string) {
 			const index = activeElements.indexOf(element);
 
 			if (index > -1) activeElements.splice(index, 1);
-			
+
 			// Reset first run flag if page is empty (user left site completely)
 			if (activeElements.length === 0) {
-				isFirstRunOnPageLoad = true;
+				queue.length = 0;
+				isRunning = false;
+			
+				// Removed `isFirstRunOnPageLoad = true;` to stop it from delaying on EVERY page load
 			}
 		}
 	};
