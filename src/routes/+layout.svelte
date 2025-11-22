@@ -4,8 +4,31 @@
 <script lang="ts">
 	import '../app.css';
   import { base } from '$app/paths';
+
+  // Import logic for typewriter navigation
+  import { beforeNavigate, goto } from '$app/navigation';
+  import { untypeAll } from '$lib/actions/typewriter';
 	
   let { children } = $props();
+  
+  // Flag to track if typewriter animating is running
+  let isNavigating = false;
+
+  beforeNavigate(async ({ to, cancel }) => {
+    // If 'to'=null OR if navigation is happening, STOP!
+    if (!to || isNavigating) return;
+
+    // Set flag to 'true'
+    isNavigating = true;
+    cancel();
+    await untypeAll();
+
+    // Navigate now!
+    await goto(to.url);
+    
+    // Reset the flag in case nagivation oopsies
+    isNavigating = false;
+  });
 </script>
 
 <div class="relative w-screen min-h-screen">

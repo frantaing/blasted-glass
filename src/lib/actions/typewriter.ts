@@ -1,21 +1,24 @@
 // src/lib/actions/typewriter.ts
 
-const queue: TypewriterActionItem[] = [];
-let isRunning = false;
-let lastElement: HTMLElement | null = null;
-// --- FIX: Use a simple flag to track the first run ---
-let isFirstRunOnPageLoad = true;
-let activeInstances = 0; // Track how many elements are using the action
-
-const initialBlinkDelay = 1700;
-const delayBetweenElements = 200;
-const typingSpeed = 10;
-
+// --- State Management ---
 interface TypewriterActionItem {
 	element: HTMLElement;
 	text: string;
 }
 
+const queue: TypewriterActionItem[] = [];
+const activeElements: HTMLElement[] = []; // Track everything to untype it later 
+
+let isRunning = false;
+let isFirstRunOnPageLoad = true;
+
+// --- Config ---
+const initialBlinkDelay = 1700;
+const delayBetweenElements = 200;
+const typingSpeed = 10; // ms V
+const untypeSpeed = 5; 
+
+// --- Typing Logic ---
 async function processQueue() {
 	if (isRunning || queue.length === 0) return;
 	isRunning = true;
@@ -24,17 +27,18 @@ async function processQueue() {
 	if (!item) return;
 
 	item.element.classList.add('typing-cursor');
-	lastElement = item.element;
 
-	// --- FIX: Check our reliable flag instead of the queue length ---
+	// Initial Delay Logic
 	if (isFirstRunOnPageLoad) {
 		await new Promise(resolve => setTimeout(resolve, initialBlinkDelay));
-		// --- FIX: Immediately set the flag to false so this never runs again ---
 		isFirstRunOnPageLoad = false;
 	}
 
+	// Typing Loop
 	await new Promise<void>(resolve => {
 		let i = 0;
+		// Clear text before starting to type
+		item.element.textContent = ""; 
 		const interval = setInterval(() => {
 			if (i < item.text.length) {
 				item.element.textContent += item.text.charAt(i);
@@ -46,41 +50,78 @@ async function processQueue() {
 		}, typingSpeed);
 	});
 
+	// Cleanup & Next Item
 	if (queue.length > 0) {
 		item.element.classList.remove('typing-cursor');
 		await new Promise(resolve => setTimeout(resolve, delayBetweenElements));
 		isRunning = false;
 		processQueue();
 	} else {
+		// Keep cursor on the last element
 		isRunning = false;
 	}
 }
 
-export function typewriter(element: HTMLElement, text: string) {
-    activeInstances++; // Increment for each element using the action
+// --- Untyping Logic ---
+export function untypeAll() {
+	// Stop any forward typing immediately
+	queue.length = 0; 
+	isRunning = false;
 
+	return new Promise<void>(async (resolve) => {
+		// Reverse the array so text is deleted from the bottom -> top
+		const elementsReversed = [...activeElements].reverse();
+
+		for (const element of elementsReversed) {
+			// Skip elements that are already empty
+			if (!element.textContent) continue;
+
+			element.classList.add('typing-cursor');
+
+			await new Promise<void>(done => {
+				const interval = setInterval(() => {
+					if (element.textContent && element.textContent.length > 0) {
+						// Remove one character
+						element.textContent = element.textContent.slice(0, -1);
+					} else {
+						clearInterval(interval);
+						element.classList.remove('typing-cursor');
+						done();
+					}
+				}, untypeSpeed);
+			});
+		}
+		resolve();
+	});
+}
+
+// --- Action ---
+export function typewriter(element: HTMLElement, text: string) {
 	const textNode = Array.from(element.childNodes).find(
 		node => node.nodeType === 3 && node.textContent?.trim()
 	);
-	if (textNode) {
-		textNode.textContent = '';
-	} else {
-		element.textContent = '';
-	}
+	if (textNode) textNode.textContent = '';
+	else element.textContent = '';
 
+	// Add to active list (for untyping later)
+	activeElements.push(element);
+
+	// Add to queue (for typing now)
 	queue.push({ element, text });
 
+	// Start typing
 	processQueue();
 
 	return {
 		destroy() {
-			activeInstances--; // Decrement when an element is unmounted
-			// --- FIX: If all elements are gone, reset the state for the next page load/navigation ---
-			if (activeInstances === 0) {
-				queue.length = 0;
-				isRunning = false;
-				isFirstRunOnPageLoad = true; // This is crucial for SPA navigation
-                lastElement = null;
+			// Remove from active list when element is removed from DOM
+			const index = activeElements.indexOf(element);
+
+			if (index > -1) activeElements.splice(index, 1);
+			
+			// Reset first run flag if page is empty (user left site completely)
+			if (activeElements.length === 0) {
+				isFirstRunOnPageLoad = true;
 			}
 		}
 	};

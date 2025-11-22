@@ -2,7 +2,7 @@
 <!-- Homepage index -->
 
 <script lang="ts">
-    import { typewriter } from '$lib/actions/typewriter';
+    import { typewriter, untypeAll } from '$lib/actions/typewriter';
     import { base } from '$app/paths';
 </script>
 
