@@ -2,8 +2,7 @@
 <!-- Homepage index -->
 
 <script lang="ts">
-    import { typewriter, untypeAll } from '$lib/actions/typewriter';
-    import { base } from '$app/paths';
+    import { typewriter } from '$lib/actions/typewriter';
 </script>
 
 <div class="flex flex-col gap-7 w-screen max-w-sm h-screen max-h-80 text-left">
@@ -16,19 +15,19 @@
     <section class="flex flex-col gap-10">
         <!-- Layout links -->
         <nav class="flex flex-col gap-2">
-            <a href={`${base}/`} class="group navlink flex items-center gap-1 hover:bg-white">
+            <a href="/" class="group navlink flex items-center gap-1 hover:bg-white">
                 <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-                <img src="{base}/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
+                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
                 <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'LAYOUT'}></span>
             </a>
         </nav>
         <!-- Go back! -->
-        <a href={`${base}/`} class="group navlink flex items-center gap-1 hover:bg-white">
+        <a href="/" class="group navlink flex items-center gap-1 hover:bg-white">
             <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-            <img src="{base}/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
+            <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
             <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'GO BACK?'}></span>
         </a>
     </section>
     <!-- github -->
-    <a href="{base}/" class="mt-5 text-sm hover:underline type-me" use:typewriter={'@frantaing'}>.</a>
+    <a href="/" class="mt-5 text-sm hover:underline type-me" use:typewriter={'@frantaing'}>.</a>
 </div>
