@@ -26,7 +26,8 @@ export default defineConfig(
 		files: [
 			'**/*.svelte',
 			'**/*.svelte.ts',
-			'**/*.svelte.js'
+			'**/*.svelte.js',
+			'svelte/no-navigation-without-resolve': 'off'
 		],
 		languageOptions: {
 			parserOptions: {
