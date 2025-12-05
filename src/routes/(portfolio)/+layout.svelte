@@ -2,7 +2,7 @@
 <!-- The layout for indexes -->
 
 <script lang="ts">
-  import '../app.css';
+  import '../../app.css';
 
   // Import logic for typewriter navigation
   import { beforeNavigate, goto } from '$app/navigation';
