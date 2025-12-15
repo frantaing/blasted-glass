@@ -1,4 +1,3 @@
-<!-- src/routes/+layout.svelte -->
 <!-- The layout for indexes -->
 
 <script lang="ts">

@@ -8,17 +8,17 @@
 <div class="flex flex-col gap-7 w-screen max-w-sm h-screen max-h-80 text-left">
 	<!-- Heading & Description -->
     <section>
-        <h1 use:typewriter={"you're: in LAYOUTS"}>.</h1>       
+        <h1 use:typewriter={"you're: in CONCEPTS"}>.</h1>       
         <p use:typewriter={'look at all these chimkens!'}></p>   
     </section>
     <!-- Navigation -->
     <section class="flex flex-col gap-10">
-        <!-- Layout links -->
+        <!-- Concept links -->
         <nav class="flex flex-col gap-2">
-            <a href="/" class="group navlink flex items-center gap-1 hover:bg-white">
+            <a href="/receipted" class="group navlink flex items-center gap-1 hover:bg-white">
                 <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
                 <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'LAYOUT'}></span>
+                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'RECEIPTED'}></span>
             </a>
         </nav>
         <!-- Go back! -->
