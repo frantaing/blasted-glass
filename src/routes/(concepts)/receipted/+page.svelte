@@ -36,7 +36,7 @@
         
             <div class="imgpad">
                 <!-- Ensure images are in /static/receipts/ -->
-                <img src="/receipts/Screen-Shot-2020-06-01-at-11.41.33-AM.png" alt="Receipt 1">
+                <img src="receipted/receipts/receipt-1.jpg" alt="Receipt 1">
             </div>
         <br>
         <h3>Receipt 1</h3>
@@ -48,7 +48,7 @@
         <br><br><br>
 
             <div class="imgpad">
-                <img src="/receipts/Examples-of-scanned-receipts-for-the-competition-tasks.png" alt="Receipt 2">
+                <img src="receipted/receipts/receipt-2.jpg" alt="Receipt 2">
             </div>
         <br>
         <h3>Receipt 2</h3>
@@ -60,7 +60,7 @@
         <br><br><br>
 
             <div class="imgpad">
-                <img src="/receipts/download.jpg" alt="Receipt 3">
+                <img src="receipted/receipts/receipt-3.jpg" alt="Receipt 3">
             </div>
         <br>
         <h3>Receipt 3</h3>
@@ -77,20 +77,17 @@
 </div>
 
 <div class="footnote">
-    <p>
-        F.B.T. @2022
+    <p> <!-- Update this i guess -->
+        F.B.T. @2025
     </p>
 </div>
 
 <style>
-    /* Svelte automatically scopes these styles to this page only */
     *{
         box-sizing: border-box;
         margin:0;
         padding:0;
     }
-    /* Note: Global pseudo-selectors like scrollbar might need :global() in Svelte, 
-       but we'll keep it simple for now. If it doesn't work, ignore it. */
     *::-webkit-scrollbar{
         display:none;
     }
@@ -137,7 +134,6 @@
         font-size: 16px;
         text-align:justify;
     }
-    /* Removed IDs since they weren't used in HTML, cleaned up */
     .intro{
         padding: 10px 0;
     }

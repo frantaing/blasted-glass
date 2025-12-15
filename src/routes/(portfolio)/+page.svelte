@@ -17,7 +17,7 @@
             <a href="/concepts" class="group navlink flex items-center gap-1 hover:bg-white">
                 <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
                 <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'LAYOUT'}></span>
+                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'CONCEPTS'}></span>
             </a>
         </nav>
     </section>
