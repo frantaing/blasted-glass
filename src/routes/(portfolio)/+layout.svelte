@@ -1,6 +1,7 @@
 <!-- The layout for indexes -->
 
 <script lang="ts">
+  // taiwind
   import '../../app.css';
 
   // Import logic for typewriter navigation

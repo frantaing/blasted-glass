@@ -1,4 +1,4 @@
-<div class="flex justify-between fixed top-0 left-0 w-full py-5 px-[33%] font-[monospace] font-bold text-lg text-white bg-black">
+<div class="flex justify-between fixed top-0 left-0 w-full py-5 px-10 font-[monospace] font-bold text-lg text-white bg-black md:px-[20%] xl:px-[34%]">
     <!-- go back home -->
     <a href="/receipted">RECEIPTED</a>
     
