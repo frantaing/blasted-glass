@@ -1,87 +1,115 @@
 <!-- src/routes/(concepts)/receipted/+page.svelte -->
 
+<!-- title -->
 <svelte:head>
-    <title>receipted</title>
+    <title>concept: receipted</title>
 </svelte:head>
 
-<div class="navbar">
-    <!-- Updated link to point to this page's route -->
-    <a href="/receipted">RECEIPTED</a>
-    <div class="rightnav">
-        <a href="#">gallery</a> 
-        <a href="#">about</a>
-    </div>
-</div>
-
-<div class="main">
-
-    <div class="intro">
-        <h1>Welcome to the Receipt Archive!</h1>
-        <p>
-            This is a passion project where
-            I collect receipts from various
-            purchases I've made. 
-            <br><br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam nisl, vulputate ac tincidunt et, ultricies non massa. Vestibulum lacinia odio purus, a congue lacus rhoncus vitae. Sed vitae ex eget elit lacinia facilisis. Curabitur ac risus non quam cursus condimentum. Mauris vitae elit et nulla maximus dapibus at sed est. Proin tempus enim ut orci porta ullamcorper. Sed sem eros, sollicitudin tincidunt nunc ut, scelerisque sollicitudin nibh.
-        </p>
-    </div>
-
-    <br><br>
-    <hr />
-    <br><br>
-
-    <div class="restofcont">
-
-        <h1>Latest Purchases</h1>
+<!-- HTML -->
+<div>
+    <!-- no need for copmonents ah! -->
+    <!-- or create similar components as main? -->
+    <div class="navbar">
+        <!-- go back home -->
+        <a href="/receipted">RECEIPTED</a>
         
+        <!-- other pages... -->
+        <!-- setup other pages! link here! -->
+        <div class="rightnav">
+            <a href="#">gallery</a> 
+            <a href="#">about</a>
+        </div>
+    </div>
+    
+    <!-- main content -->
+    <div class="main">
+    
+        <!-- intro -->
+        <div class="intro">
+            <!-- heading -->
+            <h1>Welcome to the Receipt Archive!</h1>
+            <!-- description -->
+            <p>
+                This is a passion project where
+                I collect receipts from various
+                purchases I've made. 
+                <br><br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam nisl, vulputate ac tincidunt et, ultricies non massa. Vestibulum lacinia odio purus, a congue lacus rhoncus vitae. Sed vitae ex eget elit lacinia facilisis. Curabitur ac risus non quam cursus condimentum. Mauris vitae elit et nulla maximus dapibus at sed est. Proin tempus enim ut orci porta ullamcorper. Sed sem eros, sollicitudin tincidunt nunc ut, scelerisque sollicitudin nibh.
+            </p>
+        </div>
+    
+        <!-- maybe change this to padding instead? -->
+        <br><br>
+        <!-- line -->
+        <hr />
+        <br><br>
+    
+        <!-- latest perchases (main content) -->
+        <div class="restofcont">
+    
+            <!-- title -->
+            <h1>Latest Purchases</h1>
+            
+            
+            <!-- !!![add a div container for each receipt item]!!! -->
+            <!-- first image -->
             <div class="imgpad">
                 <!-- Ensure images are in /static/receipts/ -->
                 <img src="receipted/receipts/receipt-1.jpg" alt="Receipt 1">
             </div>
-        <br>
-        <h3>Receipt 1</h3>
-        <br>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam nisl, vulputate ac tincidunt et, ultricies non massa. Vestibulum lacinia odio purus, a congue lacus rhoncus vitae. Sed vitae ex eget elit lacinia facilisis. Curabitur ac risus non quam cursus condimentum. Mauris vitae elit et nulla maximus dapibus at sed est. Proin tempus enim ut orci porta ullamcorper. Sed sem eros, sollicitudin tincidunt nunc ut, scelerisque sollicitudin nibh.
-        </p>
-
-        <br><br><br>
-
+            
+            <br>
+            
+            <!-- receipt title -->
+            <h3>Receipt 1</h3>
+            
+            <br>
+                
+            <!-- receipt description -->
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam nisl, vulputate ac tincidunt et, ultricies non massa. Vestibulum lacinia odio purus, a congue lacus rhoncus vitae. Sed vitae ex eget elit lacinia facilisis. Curabitur ac risus non quam cursus condimentum. Mauris vitae elit et nulla maximus dapibus at sed est. Proin tempus enim ut orci porta ullamcorper. Sed sem eros, sollicitudin tincidunt nunc ut, scelerisque sollicitudin nibh.</p>
+            
+            <!-- BREAK! -->
+            <br><br><br>
+    
+            <!-- receipt item... -->
             <div class="imgpad">
                 <img src="receipted/receipts/receipt-2.jpg" alt="Receipt 2">
             </div>
-        <br>
-        <h3>Receipt 2</h3>
-        <br>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam nisl, vulputate ac tincidunt et, ultricies non massa. Vestibulum lacinia odio purus, a congue lacus rhoncus vitae. Sed vitae ex eget elit lacinia facilisis. Curabitur ac risus non quam cursus condimentum. Mauris vitae elit et nulla maximus dapibus at sed est. Proin tempus enim ut orci porta ullamcorper. Sed sem eros, sollicitudin tincidunt nunc ut, scelerisque sollicitudin nibh.
-        </p>
-
-        <br><br><br>
-
+            <br>
+            <h3>Receipt 2</h3>
+            <br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam nisl, vulputate ac tincidunt et, ultricies non massa. Vestibulum lacinia odio purus, a congue lacus rhoncus vitae. Sed vitae ex eget elit lacinia facilisis. Curabitur ac risus non quam cursus condimentum. Mauris vitae elit et nulla maximus dapibus at sed est. Proin tempus enim ut orci porta ullamcorper. Sed sem eros, sollicitudin tincidunt nunc ut, scelerisque sollicitudin nibh.</p>
+    
+            <!-- BREAK! -->
+            <br><br><br>
+    
+            <!-- receipt item... -->
             <div class="imgpad">
                 <img src="receipted/receipts/receipt-3.jpg" alt="Receipt 3">
             </div>
+            <br>
+            <h3>Receipt 3</h3>
+            <br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam nisl, vulputate ac tincidunt et, ultricies non massa. Vestibulum lacinia odio purus, a congue lacus rhoncus vitae. Sed vitae ex eget elit lacinia facilisis. Curabitur ac risus non quam cursus condimentum. Mauris vitae elit et nulla maximus dapibus at sed est. Proin tempus enim ut orci porta ullamcorper. Sed sem eros, sollicitudin tincidunt nunc ut, scelerisque sollicitudin nibh.</p>
+        </div>
+    
+        <!-- BREAK! -->
+        <br><br><br>
+        <!-- line -->
+        <hr />
         <br>
-        <h3>Receipt 3</h3>
-        <br>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam nisl, vulputate ac tincidunt et, ultricies non massa. Vestibulum lacinia odio purus, a congue lacus rhoncus vitae. Sed vitae ex eget elit lacinia facilisis. Curabitur ac risus non quam cursus condimentum. Mauris vitae elit et nulla maximus dapibus at sed est. Proin tempus enim ut orci porta ullamcorper. Sed sem eros, sollicitudin tincidunt nunc ut, scelerisque sollicitudin nibh.
+    
+    </div>
+    
+    <!-- footnote? maybe remove this? -->
+    <div class="footnote">
+        <p> <!-- Update this i guess -->
+            F.B.T. @2025
         </p>
     </div>
-
-    <br><br><br>
-    <hr />
-    <br>
-
 </div>
 
-<div class="footnote">
-    <p> <!-- Update this i guess -->
-        F.B.T. @2025
-    </p>
-</div>
-
+<!-- gut this for tailwind... -->
 <style>
     *{
         box-sizing: border-box;
