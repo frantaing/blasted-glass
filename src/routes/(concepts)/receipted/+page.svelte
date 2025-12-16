@@ -88,21 +88,10 @@
 
 <!-- gut this for tailwind... -->
 <style>
-    *{
-        box-sizing: border-box;
-        margin:0;
-        padding:0;
-    }
-    *::-webkit-scrollbar{
-        display:none;
-    }
     .main{
         margin: 0 34%;
         margin-top:100px;
     
-        font-family:monospace;
-        font-size: 16px;
-        text-align:justify;
     }
     .intro{
         padding: 10px 0;
@@ -129,25 +118,5 @@
     h3{
         text-align:center;
         font-style: italic;
-    }
-    
-    /*small screens*/
-    @media only screen and (max-width:1100px){
-        .navbar{
-            padding: 20px 10rem;
-        }
-        .main{
-            margin: 0 10rem;
-            margin-top:100px;
-        }
-    }
-    @media only screen and (max-width:800px){
-        .navbar{
-            padding: 20px 4rem;
-        }
-        .main{
-            margin: 0 5rem;
-            margin-top:100px;
-        }
     }
 </style>

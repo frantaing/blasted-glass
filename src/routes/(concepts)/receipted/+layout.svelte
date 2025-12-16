@@ -9,7 +9,7 @@
 <NavBar />
 
 <!-- main page -->
-<div class="">
+<div class="mt-24 mx-[34%] text-sm text-justify md:mx-20 xl:mx-40">
     {@render children()}
 </div>
 
@@ -20,6 +20,12 @@
 
 <style>
     * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
         font-family: monospace;
+    }
+    *::-webkit-scrollbar{
+        display:none;
     }
 </style>
