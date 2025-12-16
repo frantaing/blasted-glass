@@ -1,5 +1,3 @@
-<!-- src/routes/(concepts)/receipted/+page.svelte -->
-
 <!-- title -->
 <svelte:head>
     <title>concept: receipted</title>
@@ -7,20 +5,6 @@
 
 <!-- HTML -->
 <div>
-    <!-- no need for copmonents ah! -->
-    <!-- or create similar components as main? -->
-    <div class="navbar">
-        <!-- go back home -->
-        <a href="/receipted">RECEIPTED</a>
-        
-        <!-- other pages... -->
-        <!-- setup other pages! link here! -->
-        <div class="rightnav">
-            <a href="#">gallery</a> 
-            <a href="#">about</a>
-        </div>
-    </div>
-    
     <!-- main content -->
     <div class="main">
     
@@ -100,13 +84,6 @@
         <br>
     
     </div>
-    
-    <!-- footnote? maybe remove this? -->
-    <div class="footnote">
-        <p> <!-- Update this i guess -->
-            F.B.T. @2025
-        </p>
-    </div>
 </div>
 
 <!-- gut this for tailwind... -->
@@ -118,41 +95,6 @@
     }
     *::-webkit-scrollbar{
         display:none;
-    }
-    .navbar{
-        display:flex;
-        justify-content:space-between;
-        position:fixed;
-        left:0;
-        top:0;
-        width:100%;
-    
-        background-color:black;
-        color:white;
-        font-family:monospace;
-        font-weight:bold;
-        font-size:17px;
-        padding: 20px 33%;
-    }
-    .rightnav{
-        float:right;
-    }
-    .navbar a{
-        text-decoration: none;
-        color:white;
-        text-align:center;
-        margin: 0 10px;
-    
-        box-shadow: inset 0 -1px 0 0 yellow;
-        transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
-    }
-    .navbar a:hover{
-        color:black;
-        box-shadow: inset 0 -100px 0 0 yellow;
-    }
-    .navbar a:focus{
-        color:black;
-        box-shadow: inset 0 -100px 0 0 yellow;
     }
     .main{
         margin: 0 34%;
@@ -187,14 +129,6 @@
     h3{
         text-align:center;
         font-style: italic;
-    }
-    .footnote{
-        font-family: monospace;
-        font-size: 10px;
-        font-style: italic;
-        font-weight: bolder;
-        text-align:center;
-        padding-bottom: 20px;
     }
     
     /*small screens*/
