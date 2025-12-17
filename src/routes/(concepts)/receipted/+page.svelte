@@ -12,7 +12,7 @@
     <!-- intro (make its own component?) -->
     <div class="py-2.5">
         <!-- heading -->
-        <h1>Welcome to the Receipt Archive!</h1>
+        <h1>Welcome to <span class="italic">RECEIPTED</span>!</h1>
         <!-- description -->
         <div class="flex flex-col gap-5">
             <p>This is a concept for a website where receipts could be scanned, uploaded, and stored. I had a phase where I was <span class="italic">obsessed</span> with collecting receipts. I started making this site, but never got further than a few pages as a concept. I liked it though, and it was one of the very first projects I've made when I first started getting into web development.</p>

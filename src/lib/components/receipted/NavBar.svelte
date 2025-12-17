@@ -1,10 +1,12 @@
-<div class="flex justify-between fixed top-0 left-0 w-full py-5 px-10 font-[monospace] font-bold text-lg text-white bg-black md:px-[20%] xl:px-[34%]">
-    <!-- go back home -->
-    <a href="/receipted">RECEIPTED</a>
+<div class="flex justify-between items-center fixed top-0 left-0 w-full py-5 px-10 font-[monospace] font-bold text-lg text-white bg-black md:px-[20%] xl:px-[34%]">
+    <div>
+        <!-- go back home -->
+        <a href="/concepts">BLASTED GLASS</a>
+    </div>
     
     <!-- other pages... -->
     <!-- setup other pages! link here! -->
-    <div class="float-right">
+    <div>
         <a href="#">gallery</a> 
         <a href="#">about</a>
     </div>
@@ -16,7 +18,7 @@
         color:white;
         text-align:center;
         margin: 0 10px;
-    
+        padding: 0px 2px;
         box-shadow: inset 0 -1px 0 0 yellow;
         transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
     }
