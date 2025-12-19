@@ -5,7 +5,7 @@
         </div>
         <div>
             <a href="/receipted/gallery" class="lowercase">gallery</a> 
-            <a href="#" class="lowercase">about</a>
+            <a href="/receipted/about" class="lowercase">about</a>
             <a href="/concepts" class="uppercase">HOME</a>
         </div>
         

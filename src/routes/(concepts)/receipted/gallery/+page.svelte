@@ -11,7 +11,7 @@
 <div class="flex flex-col gap-10">
 	<section class="py-2.5">
 		<!-- heading -->
-		<h1>The receipt gallery</h1>
+		<h1 class="mb-10">The receipt gallery</h1>
 		<!-- description -->
 		<div class="flex flex-col gap-5">
 			<p>
@@ -28,7 +28,7 @@
 	<!-- gallery -->
 	<section class="flex justify-center">
 	    <!-- changed from 'grid' to 'columns' for that tiling/mosaic(?) look -->
-        <div class="columns-2 gap-5 w-fit max-w-4xl mx-auto md:columns-3">   
+        <div class="columns-1 gap-5 w-fit max-w-4xl mx-auto sm:columns-2 md:columns-3">   
             <ReceiptGalleryItem 
                 src="/receipted/receipts/receipt-1.jpg"
                 alt="Receipt item"

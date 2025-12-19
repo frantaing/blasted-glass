@@ -11,15 +11,15 @@
 <NavBar />
 
 <!-- main page -->
-<div class="flex justify-center">
+<main class="flex justify-center">
     <section class="receipt-theme mx-16 text-sm text-justify sm:max-w-xl">
         {@render children()}
     </section>
-</div>
+</main>
 
-<div class="py-5 font-bold font-[monospace] italic text-xs text-center">
+<footer class="py-5 font-bold font-[monospace] italic text-xs text-center">
     <p>Frantaing @2025</p>
-</div>
+</footer>
 
 
 <style>
@@ -30,7 +30,6 @@
     .receipt-theme :global(h1) {
         text-align: center;
         font-weight: 900;
-        padding-bottom: 40px;
         font-size: 2em;
     }
     :global(*::-webkit-scrollbar) { /* global scrollbar hide */
