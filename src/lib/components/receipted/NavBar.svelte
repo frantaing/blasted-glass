@@ -20,7 +20,7 @@
         text-align:center;
         padding: 0px 2px;
         box-shadow: inset 0 -1px 0 0 yellow;
-        transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+        transition: color .2s ease-in-out, box-shadow .2s ease-in-out;
     }
     a:hover{
         color:black;

@@ -17,6 +17,6 @@
         transition: box-shadow .2s ease-in;
     }
     img:hover {
-        box-shadow: 10px 10px 0 0 yellow;
+        box-shadow: 8px 8px 0 0 yellow;
     }
 </style>
