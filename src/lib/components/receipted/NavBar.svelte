@@ -1,17 +1,19 @@
-<div class="flex justify-between items-center fixed top-0 left-0 w-full py-5 px-10 font-[monospace] font-bold text-lg text-white bg-black md:px-[20%] xl:px-[34%]">
-    <div>
-        <a href="/receipted">RECEIPTED</a>
+<nav class="z-50 fixed top-0 left-0 w-full bg-black text-white font-[monospace] font-bold text-lg">
+    <div class="mx-auto flex justify-between items-center w-full max-w-xl py-5 px-16 sm:px-0">
+        <div>
+            <a href="/receipted">RECEIPTED</a>
+        </div>
+        <div>
+            <a href="/receipted/gallery" class="lowercase">gallery</a> 
+            <a href="#" class="lowercase">about</a>
+            <a href="/concepts" class="uppercase">HOME</a>
+        </div>
+        
     </div>
-    
-    <!-- other pages... -->
-    <!-- setup other pages! link here! -->
-    <div>
-        <a href="/receipted/gallery">gallery</a> 
-        <a href="#">about</a>
-        <!-- go back home -->
-        <a href="/concepts">HOME</a>
-    </div>
-</div>
+</nav>
+
+<!-- padding to push main content down -->
+<div class="h-28"></div>
 
 <style>
     a{

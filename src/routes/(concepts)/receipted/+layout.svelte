@@ -11,8 +11,10 @@
 <NavBar />
 
 <!-- main page -->
-<div class="receipt-theme mt-28 mx-[15%] text-sm text-justify md:mx-[20%] xl:mx-[34%]">
-    {@render children()}
+<div class="flex justify-center">
+    <section class="receipt-theme mx-16 text-sm text-justify sm:max-w-xl">
+        {@render children()}
+    </section>
 </div>
 
 <div class="py-5 font-bold font-[monospace] italic text-xs text-center">
