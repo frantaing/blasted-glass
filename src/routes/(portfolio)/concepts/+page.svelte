@@ -28,6 +28,4 @@
             <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'GO BACK?'}></span>
         </a>
     </section>
-    <!-- github -->
-    <a href="/" class="mt-5 text-sm hover:underline type-me" use:typewriter={'@frantaing'}>.</a>
 </div>

@@ -1,17 +1,44 @@
 <script lang="ts">
-    // for active links
-    import { page } from '$app/state';
+    // imports
+    import { page } from '$app/state'; // for active links
+    import { slide } from 'svelte/transition';
+    
+    // mobile menu
+    let isMenuOpen = $state(false);                         // track if menu is open
+    let navElement: HTMLElement;                            // HTML element ref
+    function toggleMenu() { isMenuOpen = !isMenuOpen }      // toggle menu
+    function handleClickOutside(event: MouseEvent) {        // close menu if clicked outisde
+      // if menu is closed, do nothing
+      if (!isMenuOpen) return;
+      // if click target is NOT inside nav, close menu
+      if (navElement && !navElement.contains(event.target as Node)) { isMenuOpen = false; }
+    }
 </script>
 
-<nav class="z-50 fixed top-0 left-0 w-full bg-black text-white font-[monospace] font-bold text-lg">
-    <div class="mx-auto flex justify-between items-center w-full max-w-xl py-5 px-16 sm:px-0">
+<!-- window event listener -->
+<svelte:window onclick={handleClickOutside} />
+
+<!-- main navbar -->
+<nav bind:this={navElement} class="z-50 fixed top-0 left-0 w-full bg-black text-white font-[monospace] font-bold text-lg">
+    <div class="mx-auto flex justify-between items-center w-full max-w-xl py-3 px-16 sm:px-0 sm:py-5">
         <div>
             <a 
                 href="/receipted" 
                 class:active={page.url.pathname === '/receipted'}
             >RECEIPTED</a>
         </div>
+        <!-- mobile menu button (hidden on desktop) -->
         <div>
+            <a 
+                onclick={toggleMenu} 
+                class="uppercase not-odd:p-0! sm:hidden"
+            >
+                <!-- change text based on state -->
+                {isMenuOpen ? 'close' : 'menu'}
+            </a>
+        </div>
+        <!-- desktop menu (hidden on mobile) -->
+        <div class="hidden sm:block">
             <a 
                 href="/receipted/gallery" 
                 class="lowercase"
@@ -26,10 +53,44 @@
             <a href="/concepts" class="uppercase">HOME</a>
         </div>
     </div>
+    
+    <!-- mobile menu -->
+    {#if isMenuOpen}
+        <div 
+            transition:slide={{ duration: 200 }}
+            class="absolute top-full left-0 w-full pr-5 pb-4 bg-black sm:hidden"
+        >
+            <div class="flex flex-col items-end px-10 py-2 gap-4">
+                <div>
+                    <a 
+                        href="/receipted/gallery" 
+                        class="lowercase"
+                        class:active={page.url.pathname === '/receipted/gallery'}
+                        onclick={() => isMenuOpen = false}
+                    >gallery</a> 
+                </div>
+                <div>
+                    <a 
+                        href="/receipted/about" 
+                        class="lowercase"
+                        class:active={page.url.pathname === '/receipted/about'}
+                        onclick={() => isMenuOpen = false}
+                    >about</a>
+                </div>
+                <div>
+                    <a 
+                        href="/concepts" 
+                        class="uppercase"
+                        onclick={() => isMenuOpen = false}
+                    >HOME</a>
+                </div>
+            </div>
+        </div>
+    {/if}
 </nav>
 
 <!-- padding to push main content down -->
-<div class="h-28"></div>
+<div class="h-20 sm:h-28"></div>
 
 <style>
     a {
@@ -39,8 +100,10 @@
         padding: 0px 2px;
         box-shadow: inset 0 -1px 0 0 yellow;
         transition: color .2s ease-in-out, box-shadow .2s ease-in-out;
+        cursor: pointer;
     }
     a:hover, a:focus, a.active {
-        color:black;        box-shadow: inset 0 -100px 0 0 yellow;
+        color:black;
+        box-shadow: inset 0 -100px 0 0 yellow;
     }
 </style>
