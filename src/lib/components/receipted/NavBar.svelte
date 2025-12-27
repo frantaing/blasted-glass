@@ -93,7 +93,7 @@
 <div class="h-20 sm:h-28"></div>
 
 <style>
-    a, button {
+    a {
         text-decoration: none;
         color:white;
         text-align:center;
@@ -102,7 +102,7 @@
         transition: color .2s ease-in-out, box-shadow .2s ease-in-out;
         cursor: pointer;
     }
-    a:hover, a:focus, a.active, button:hover, button:focus {
+    a:hover, a:focus, a.active {
         color:black;
         box-shadow: inset 0 -100px 0 0 yellow;
     }
