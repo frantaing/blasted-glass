@@ -2,8 +2,11 @@
     // imports
     import '../app.css';
     import { fade } from 'svelte/transition'; // fade when navigating layouts
+    import type { Snippet } from 'svelte';
+    import type { LayoutData } from './$types';
     
-    let { children, data } = $props();
+    // apply types to $props
+    let { children, data } = $props<{ children: Snippet, data: LayoutData }>();
 </script>
 
 <div class="layout-grid">
@@ -11,8 +14,8 @@
     {#key data.url}
         <div
             class="page-content"
-            in:fade={{ duration: 300, delay: 300}}
-            out:fade={{  duration: 300 }}
+            in:fade={{ duration: 250, delay: 250}}
+            out:fade={{  duration: 250 }}
         >
             {@render children()}
         </div>
