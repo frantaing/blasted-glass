@@ -28,13 +28,15 @@
             >RECEIPTED</a>
         </div>
         <!-- mobile menu button (hidden on desktop) -->
-        <button 
-            onclick={toggleMenu} 
-            class="sm:hidden text-white uppercase focus:outline-none hover:text-yellow-300 transition-colors"
-        >
-            <!-- change text based on state -->
-            {isMenuOpen ? 'close' : 'menu'}
-        </button>
+        <div>
+            <a 
+                onclick={toggleMenu} 
+                class="p-0! sm:hidden"
+            >
+                <!-- change text based on state -->
+                {isMenuOpen ? 'close' : 'menu'}
+            </a>
+        </div>
         <!-- desktop menu (hidden on mobile) -->
         <div class="hidden sm:block">
             <a 
@@ -91,15 +93,17 @@
 <div class="h-20 sm:h-28"></div>
 
 <style>
-    a {
+    a, button {
         text-decoration: none;
         color:white;
         text-align:center;
         padding: 0px 2px;
         box-shadow: inset 0 -1px 0 0 yellow;
         transition: color .2s ease-in-out, box-shadow .2s ease-in-out;
+        cursor: pointer;
     }
-    a:hover, a:focus, a.active {
-        color:black;        box-shadow: inset 0 -100px 0 0 yellow;
+    a:hover, a:focus, a.active, button:hover, button:focus {
+        color:black;
+        box-shadow: inset 0 -100px 0 0 yellow;
     }
 </style>
