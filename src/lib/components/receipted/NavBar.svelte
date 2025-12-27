@@ -2,14 +2,24 @@
     // imports
     import { page } from '$app/state'; // for active links
     import { slide } from 'svelte/transition';
-    // track if menu is open
-    let isMenuOpen = $state(false);
-    // toggle menu
-    function toggleMenu() { isMenuOpen = !isMenuOpen }
+    
+    // mobile menu
+    let isMenuOpen = $state(false);                         // track if menu is open
+    let navElement: HTMLElement;                            // HTML element ref
+    function toggleMenu() { isMenuOpen = !isMenuOpen }      // toggle menu
+    function handleClickOutside(event: MouseEvent) {        // close menu if clicked outisde
+      // if menu is closed, do nothing
+      if (!isMenuOpen) return;
+      // if click target is NOT inside nav, close menu
+      if (navElement && !navElement.contains(event.target as Node)) { isMenuOpen = false; }
+    }
 </script>
 
+<!-- window event listener -->
+<svelte:window onclick={handleClickOutside} />
+
 <!-- main navbar -->
-<nav class="z-50 fixed top-0 left-0 w-full bg-black text-white font-[monospace] font-bold text-lg">
+<nav bind:this={navElement} class="z-50 fixed top-0 left-0 w-full bg-black text-white font-[monospace] font-bold text-lg">
     <div class="mx-auto flex justify-between items-center w-full max-w-xl py-3 px-16 sm:px-0 sm:py-5">
         <div>
             <a 
