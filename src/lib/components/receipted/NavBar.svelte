@@ -31,7 +31,7 @@
         <div>
             <a 
                 onclick={toggleMenu} 
-                class="p-0! sm:hidden"
+                class="uppercase not-odd:p-0! sm:hidden"
             >
                 <!-- change text based on state -->
                 {isMenuOpen ? 'close' : 'menu'}
