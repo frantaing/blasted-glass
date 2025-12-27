@@ -30,6 +30,7 @@
         <!-- mobile menu button (hidden on desktop) -->
         <div>
             <a 
+                href="#"
                 onclick={toggleMenu} 
                 class="uppercase not-odd:p-0! sm:hidden"
             >
