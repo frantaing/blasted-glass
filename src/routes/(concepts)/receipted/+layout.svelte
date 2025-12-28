@@ -7,20 +7,21 @@
     let { children } = $props();
 </script>
 
-<!-- navbar -->
-<NavBar />
-
-<!-- main page -->
-<main class="flex justify-center">
-    <section class="receipt-theme mx-16 text-sm text-justify sm:max-w-xl">
-        {@render children()}
-    </section>
-</main>
-
-<footer class="py-5 font-bold font-[monospace] italic text-xs text-center">
-    <p>Frantaing @2025</p>
-</footer>
-
+<div class="min-h-screen w-full bg-white text-black isolate">
+    <!-- navbar -->
+    <NavBar />
+    
+    <!-- main page -->
+    <main class="flex justify-center">
+        <section class="receipt-theme mx-16 text-sm text-justify sm:max-w-xl">
+            {@render children()}
+        </section>
+    </main>
+    
+    <footer class="py-5 font-bold font-[monospace] italic text-xs text-center">
+        <p>Frantaing @2025</p>
+    </footer>
+</div>
 
 <style>
     /* global styles for this layout only */

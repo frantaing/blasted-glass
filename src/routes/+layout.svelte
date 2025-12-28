@@ -30,6 +30,7 @@
         width: 100%;
         min-height: 100vh;
         overflow-x: hidden; /* no scrollbars during transition */
+        background-color: black;
     }
 
     .page-content {
