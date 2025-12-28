@@ -10,8 +10,8 @@
 </script>
 
 <div class="layout-grid">
-    <!-- when data.url changes, destroy old ocntnet and create new content -->
-    {#key data.url}
+    <!-- when data.layoutGroup changes, destroy old ocntnet and create new content -->
+    {#key data.layoutGroup}
         <div
             class="page-content"
             in:fade={{ duration: 250, delay: 250}}
