@@ -51,7 +51,7 @@
                 class:active={page.url.pathname === '/receipted/about'}
             >about</a>
             <!-- no need for active styling on HOME link -->
-            <a href="/concepts" class="uppercase">HOME</a>
+            <a href="/" class="uppercase">HOME</a>
         </div>
     </div>
     
