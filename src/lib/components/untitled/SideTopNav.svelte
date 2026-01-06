@@ -5,7 +5,3 @@
     <a href="#" class="text-[#0000EE] underline">link 4</a>
     <a href="#" class="text-[#0000EE] underline">link 5</a>
 </nav>
-
-<style>
-    
-</style>

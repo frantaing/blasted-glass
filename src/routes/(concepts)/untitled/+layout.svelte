@@ -1,14 +1,15 @@
 <script lang="ts">
     // components
     import SideTopNav from "$lib/components/untitled/SideTopNav.svelte";
+    import WatchingEyes from "$lib/components/untitled/WatchingEyes.svelte";
     
     let { children } = $props();
 </script>
 
 <main class="untitled-theme flex justify-center">
     <div class="flex flex-col gap-8 m-10 w-full sm:max-w-3xl">
-        <section class="w-full text-center bg-red-200">
-            all-watching eye here...
+        <section class="w-full pb-8 text-center border-b-2 border-black">
+            <WatchingEyes />
         </section>
         <section class="flex flex-col justify-between gap-5 w-full sm:flex-row">
             <!-- nav -->
