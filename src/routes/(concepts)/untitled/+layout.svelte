@@ -8,8 +8,8 @@
             all-watching eye here...
         </section>
         <section class="flex flex-col justify-between gap-5 w-full sm:flex-row">
-            <div class=" bg-blue-200 sm:w-40 md:w-3xs">
-                hello!
+            <div class="sm:w-40 md:w-3xs">
+                <a href="#" class="text-[#0000EE] underline">hello</a>
             </div>
             <div class="w-full bg-amber-200">
                 {@render children()}       
@@ -26,5 +26,6 @@
         width: 100%;
         height: 100vh;
         background-color: white;
+        font-family: serif;
     }
 </style>
