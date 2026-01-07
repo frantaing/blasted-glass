@@ -124,7 +124,7 @@
 	@media (max-width: 640px) {
 		.pupil {
 			/* override above */
-			transform: translate(0px, 10px) !important; 
+			transform: translate(-3px, 10px) !important; 
 		}
 	}
 </style>
