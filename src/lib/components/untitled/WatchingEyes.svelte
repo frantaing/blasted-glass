@@ -29,7 +29,7 @@
 		// calc angle and distance
 		const angle = Math.atan2(deltaY, deltaX);
 		// limit the distance so the pupil stays inside the eye
-		const distance = Math.min(Math.sqrt(deltaX ** 2 + deltaY ** 2), 500); // arbitrary damper
+		const distance = Math.min(Math.sqrt(deltaX ** 2 + deltaY ** 2), 100); // arbitrary damper
 		
 		// map distance to movement range (0 to MOVEMENT_RANGE)
 		const moveX = Math.cos(angle) * Math.min(distance / 20, MOVEMENT_RANGE);
@@ -64,7 +64,7 @@
 	</span>
 
     <!-- nose -->
-    <span class="nose">﹏</span>
+    <span class="nose">o</span>
 
 	<!-- right eye -->
 	<span class="eye-socket">
@@ -83,10 +83,10 @@
 		align-items: end;
 		gap: 0.5rem;
 		font-family: monospace; /* monospace keeps the ASCII alignment neat */
-		font-size: 2.5rem; /* BIG EYES */
+		font-size: 1rem; /* BIG EYES */
 		line-height: 1;
 		font-weight: bold;
-		padding: 2rem 0;
+		padding-bottom: 1rem;
         cursor: default;
         user-select: none;
 	}
@@ -94,12 +94,11 @@
 	.eye-socket {
 		display: inline-flex;
 		align-items: center;
-		gap: 1.5rem;
 	}
 
 	.pupil-bounds {
 		display: inline-block;
-		width: 40px; /* eye interior width */
+		width: 45px; /* eye interior width */
 		height: 30px;
 		display: flex;
 		align-items: center;
@@ -110,7 +109,7 @@
 		display: inline-block;
 		transition: transform 0.1s ease-out; /* smooths the jitter */
         color: black;
-        font-size: 5rem;
+        font-size: 3rem;
 	}
     
     .nose {
