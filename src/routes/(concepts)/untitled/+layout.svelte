@@ -8,7 +8,7 @@
 
 <main class="untitled-theme flex justify-center">
     <div class="flex flex-col gap-8 m-10 w-full sm:max-w-3xl">
-        <section class="w-full pb-8 text-center border-b-2 border-black">
+        <section class="w-full pb-5 text-center border-b-2 border-black">
             <WatchingEyes />
         </section>
         <section class="flex flex-col justify-between gap-5 w-full sm:flex-row">

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { emitKeypressEvents } from 'readline';
 	import { onMount } from 'svelte';
 
 	let container: HTMLElement | undefined = $state();
@@ -59,19 +58,19 @@
 	<span class="eye-socket">
 		<span class="bracket">(</span>
 		<span class="pupil-bounds">
-			<span class="pupil" style:transform={pupilTransform}>@</span>
+			<span class="pupil" style:transform={pupilTransform}>◉</span>
 		</span>
-		<span class="bracket">)</span>
+		<span class="bracket"></span>
 	</span>
 
     <!-- nose -->
-    <span class="nose">,</span>
+    <span class="nose">﹏</span>
 
 	<!-- right eye -->
 	<span class="eye-socket">
-		<span class="bracket">(</span>
+		<span class="bracket"></span>
 		<span class="pupil-bounds">
-			<span class="pupil" style:transform={pupilTransform}>@</span>
+			<span class="pupil" style:transform={pupilTransform}>◉</span>
 		</span>
 		<span class="bracket">)</span>
 	</span>
@@ -81,7 +80,7 @@
 	.face-container {
 		display: flex;
 		justify-content: center;
-		align-items: center;
+		align-items: end;
 		gap: 0.5rem;
 		font-family: monospace; /* monospace keeps the ASCII alignment neat */
 		font-size: 2.5rem; /* BIG EYES */
@@ -95,6 +94,7 @@
 	.eye-socket {
 		display: inline-flex;
 		align-items: center;
+		gap: 1.5rem;
 	}
 
 	.pupil-bounds {
@@ -110,6 +110,7 @@
 		display: inline-block;
 		transition: transform 0.1s ease-out; /* smooths the jitter */
         color: black;
+        font-size: 5rem;
 	}
     
     .nose {
