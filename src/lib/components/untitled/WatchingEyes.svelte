@@ -1,9 +1,11 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	let container: HTMLElement | undefined = $state();
 	let mouseX = $state(0);
 	let mouseY = $state(0);
+    let isBlinking = $state(false);
+    let blinkTimeout: ReturnType<typeof setTimeout>;
 
 	// how much the eyes can move (in pixels)
 	const MOVEMENT_RANGE = 15;
@@ -13,29 +15,55 @@
 		mouseY = e.clientY;
 	}
 
+    // --- BLINKING LOGIC ---
+    function triggerBlink() {
+        isBlinking = true;
+        // time eyes are closed
+        setTimeout(() => {
+            isBlinking = false;
+            scheduleNextBlink();
+        }, 150); // <-- change here
+    }
+
+    function scheduleNextBlink() {
+        // blink randomly between 2 and 6 seconds
+        const randomDelay = Math.random() * 4000 + 2000;
+        blinkTimeout = setTimeout(triggerBlink, randomDelay);
+    }
+
+    onMount(() => {
+        scheduleNextBlink();
+    });
+
+    onDestroy(() => {
+        clearTimeout(blinkTimeout);
+    });
+    // ----------------------
+
 	// calc pupil offset
 	let pupilTransform = $derived.by(() => {
 		if (!container) return 'translate(0px, 0px)';
 
-		// get the bounding box of the face container to find the center
+		// get the bounding box of the face container to find the ce
+        // if blinking, squash the eye flat (scaleY 0.1)
+        // keep the translation so the eye blinks "where it is looking"
+        const blinkScale = isBlinking ? 'scaleY(0.1)' : 'scaleY(1)';
+
 		const rect = container.getBoundingClientRect();
 		const centerX = rect.left + rect.width / 2;
 		const centerY = rect.top + rect.height / 2;
 
-		// calc distance from center
 		const deltaX = mouseX - centerX;
 		const deltaY = mouseY - centerY;
 
-		// calc angle and distance
 		const angle = Math.atan2(deltaY, deltaX);
 		// limit the distance so the pupil stays inside the eye
-		const distance = Math.min(Math.sqrt(deltaX ** 2 + deltaY ** 2), 100); // arbitrary damper
+		const distance = Math.min(Math.sqrt(deltaX ** 2 + deltaY ** 2), 100); // damper
 		
-		// map distance to movement range (0 to MOVEMENT_RANGE)
 		const moveX = Math.cos(angle) * Math.min(distance / 20, MOVEMENT_RANGE);
 		const moveY = Math.sin(angle) * Math.min(distance / 20, MOVEMENT_RANGE);
 
-		return `translate(${moveX}px, ${moveY}px)`;
+		return `translate(${moveX}px, ${moveY}px) ${blinkScale}`;
 	});
 </script>
 
@@ -60,7 +88,12 @@
         <span class="eye-socket">
             <span class="bracket">(</span>
             <span class="pupil-bounds">
-                <span class="pupil" style:transform={pupilTransform}>◉</span>
+                <!-- class:blinking for mobile CSS override -->
+                <span 
+                    class="pupil" 
+                    class:blinking={isBlinking} 
+                    style:transform={pupilTransform}
+                >◉</span>
             </span>
             <span class="bracket"></span>
         </span>
@@ -75,7 +108,11 @@
         <span class="eye-socket">
             <span class="bracket"></span>
             <span class="pupil-bounds">
-                <span class="pupil" style:transform={pupilTransform}>◉</span>
+                <span 
+                    class="pupil" 
+                    class:blinking={isBlinking} 
+                    style:transform={pupilTransform}
+                >◉</span>
             </span>
             <span class="bracket">)</span>
         </span>
@@ -88,7 +125,7 @@
 		justify-content: center;
 		align-items: flex-end;
 		gap: 0.5rem;
-		font-family: monospace; /* monospace keeps the ASCII alignment neat */
+		font-family: monospace; 
 		font-size: 1rem; /* BIG EYES */
 		line-height: 1;
 		font-weight: bold;
@@ -100,7 +137,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1px; /* Space between brow and eye */
+        gap: 1px; /* space between eyebrows and eyes */
     }
     .eyebrow {
         font-size: 1.5rem;
@@ -120,22 +157,33 @@
 	}
 	.pupil {
 		display: inline-block;
-		transition: transform 0.1s ease-out; /* smooths the jitter */
+        /* added transition for transform to make the blink look snappy but smooth */
+		transition: transform 0.1s ease-out; 
         color: black;
         font-size: 3rem;
+        /* make sure transform origin is center so it squashes to the middle */
+        transform-origin: center center;
 	}
     .nose {
         position: relative;
         bottom: 5px;
     }
+
 	/* 
-       MOBILE
-       when screen is small (sm), force eyes to look down 
+       MOBILE RULES
     */
 	@media (max-width: 640px) {
+        /* standard looking down state */
 		.pupil {
-			/* override above */
 			transform: translate(-3px, 10px) !important; 
 		}
+        
+        /* 
+            BLINKING RULE!
+            for mobile else !important rule for looking down will stop blinking
+        */
+        .pupil.blinking {
+            transform: translate(-3px, 10px) scaleY(0.1) !important;
+        }
 	}
 </style>
