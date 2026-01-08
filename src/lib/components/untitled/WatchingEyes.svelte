@@ -1,11 +1,18 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 
+	// lets-a-go
 	let container: HTMLElement | undefined = $state();
 	let mouseX = $state(0);
 	let mouseY = $state(0);
+    
+    // state
     let isBlinking = $state(false);
+    let isHoveringLink = $state(false); 
+    
+    // timers
     let blinkTimeout: ReturnType<typeof setTimeout>;
+    let resetTimer: ReturnType<typeof setTimeout> | undefined;
 
 	// how much the eyes can move (in pixels)
 	const MOVEMENT_RANGE = 15;
@@ -13,10 +20,40 @@
 	function handleMouseMove(e: MouseEvent) {
 		mouseX = e.clientX;
 		mouseY = e.clientY;
+
+        // check if target is a link/button
+        const target = e.target as HTMLElement;
+        const isOver = !!target.closest('a, button'); 
+
+        if (isOver) {
+            // logic: if we are over a link, look surprised immediately
+            // and cancel any pending "go back to normal" timer
+            if (resetTimer) {
+                clearTimeout(resetTimer);
+                resetTimer = undefined;
+            }
+            isHoveringLink = true;
+        } else {
+            // logic: we are NOT over a link.
+            // if we are currently surprised, wait a moment before resetting.
+            // this prevents the "jitter" when moving between nav items.
+            if (isHoveringLink && !resetTimer) {
+                resetTimer = setTimeout(() => {
+                    isHoveringLink = false;
+                    resetTimer = undefined;
+                }, 400); // <--- 400ms delay to bridge the gap between links
+            }
+        }
 	}
 
     // --- BLINKING LOGIC ---
     function triggerBlink() {
+        // don't blink if we are currently surprised (looks weird)
+        if (isHoveringLink) {
+             scheduleNextBlink();
+             return;
+        }
+
         isBlinking = true;
         // time eyes are closed
         setTimeout(() => {
@@ -37,6 +74,7 @@
 
     onDestroy(() => {
         clearTimeout(blinkTimeout);
+        clearTimeout(resetTimer);
     });
     // ----------------------
 
@@ -78,6 +116,7 @@
 -->
 <div 
     class="face-container" 
+    class:surprised={isHoveringLink}
     bind:this={container} 
     role="img" 
     aria-label="A text face with eyes that follow you"
@@ -100,7 +139,10 @@
     </div>
 
     <!-- nose -->
-    <span class="nose self-end">o</span>
+    <!-- logic: if hovering link, use 'o', otherwise use 'ᴗ' -->
+    <span class="nose self-end">
+        {isHoveringLink ? 'o' : 'ᴗ'}
+    </span>
 
 	<!-- right eye -->
 	<div class="eye-column">
@@ -132,13 +174,33 @@
 		padding-bottom: 1rem;
         cursor: default;
         user-select: none;
+        
+        /* 
+           FIXED HEIGHT: 
+           reserve space so when eyebrows jump up, 
+           the layout doesn't shift.
+        */
+        height: 80px; 
+        box-sizing: border-box;
 	}
+
 	.eye-column {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1px; /* space between eyebrows and eyes */
+        transition: gap 0.2s ease-out; /* Smooth transition for the jump */
     }
+
+    /* 
+        SURPRISED STATE 
+        increase gap. because container aligns-items: flex-end,
+        this pushes the eyebrows UP into the empty space.
+    */
+    .face-container.surprised .eye-column {
+        gap: 10px;
+    }
+
     .eyebrow {
         font-size: 1.5rem;
         line-height: 0.5;
@@ -167,6 +229,10 @@
     .nose {
         position: relative;
         bottom: 5px;
+        /* Ensure nose doesn't jump width when changing char */
+        width: 1rem; 
+        text-align: center;
+        font-size: 1.5rem; /* Make the smile/mouth visible */
     }
 
 	/* 
