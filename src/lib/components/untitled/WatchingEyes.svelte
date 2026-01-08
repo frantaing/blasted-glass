@@ -203,7 +203,7 @@
 
     .eyebrow {
         font-size: 1.5rem;
-        line-height: 0.5;
+        line-height: 0.3;
     }
 	.eye-socket {
 		display: inline-flex;
@@ -228,8 +228,8 @@
 	}
     .nose {
         position: relative;
-        bottom: 5px;
         /* Ensure nose doesn't jump width when changing char */
+        bottom: -12px;
         width: 1rem; 
         text-align: center;
         font-size: 1.5rem; /* Make the smile/mouth visible */
@@ -239,9 +239,33 @@
        MOBILE RULES
     */
 	@media (max-width: 640px) {
+	    /* make emoticon smaller */
+    	.face-container {
+       		font-size: 0.8rem;
+            height: 40px;
+            padding-bottom: 0;
+    	}
+        .eye-column {
+            gap: 3px;
+        }
+    	.pupil-bounds {
+    		width: 30px;
+    		height: 30px;
+    	}
+    	.pupil {
+            font-size: 2.5rem;
+    	}
+        .nose {
+            font-size: 1rem;
+            bottom: 0;
+        }
+        .eyebrow {
+            line-height: 0;
+        }
+        
         /* standard looking down state */
 		.pupil {
-			transform: translate(-3px, 10px) !important; 
+			transform: translate(0px, 0px) !important; 
 		}
         
         /* 

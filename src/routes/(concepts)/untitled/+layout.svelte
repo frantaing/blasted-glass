@@ -9,10 +9,10 @@
 <main class="untitled-theme flex justify-center">
     <div class="flex flex-col items-center gap-8 m-10 my-12 w-full sm:max-w-3xl">
         <section class="flex justify-between items-end w-full pb-5 text-center border-b-2 border-black">
-            <h1>untitled</h1>
+            <h1 class="text-lg">untitled</h1>
             <WatchingEyes />
         </section>
-        <section class="flex flex-col justify-between gap-5 w-full sm:flex-row">
+        <section class="flex flex-col sm:flex-row justify-between gap-10 sm:gap-5 w-full">
             <!-- nav -->
             <SideTopNav />
             <!-- main content -->
