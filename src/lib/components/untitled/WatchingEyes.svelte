@@ -202,7 +202,7 @@
     }
 
     .eyebrow {
-        font-size: 1.5rem;
+        font-size: 2rem;
         line-height: 0.3;
     }
 	.eye-socket {
@@ -260,6 +260,7 @@
             bottom: 0;
         }
         .eyebrow {
+            font-size: 1.5rem;
             line-height: 0;
         }
         
