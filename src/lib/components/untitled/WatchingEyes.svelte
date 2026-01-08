@@ -55,32 +55,38 @@
     aria-label="A text face with eyes that follow you"
 >
 	<!-- left eye -->
-	<span class="eye-socket">
-		<span class="bracket">(</span>
-		<span class="pupil-bounds">
-			<span class="pupil" style:transform={pupilTransform}>◉</span>
-		</span>
-		<span class="bracket"></span>
-	</span>
+	<div class="eye-column">
+        <span class="eyebrow left-brow">◠</span>
+        <span class="eye-socket">
+            <span class="bracket">(</span>
+            <span class="pupil-bounds">
+                <span class="pupil" style:transform={pupilTransform}>◉</span>
+            </span>
+            <span class="bracket"></span>
+        </span>
+    </div>
 
     <!-- nose -->
-    <span class="nose">o</span>
+    <span class="nose self-end">o</span>
 
 	<!-- right eye -->
-	<span class="eye-socket">
-		<span class="bracket"></span>
-		<span class="pupil-bounds">
-			<span class="pupil" style:transform={pupilTransform}>◉</span>
-		</span>
-		<span class="bracket">)</span>
-	</span>
+	<div class="eye-column">
+        <span class="eyebrow right-brow">◠</span>
+        <span class="eye-socket">
+            <span class="bracket"></span>
+            <span class="pupil-bounds">
+                <span class="pupil" style:transform={pupilTransform}>◉</span>
+            </span>
+            <span class="bracket">)</span>
+        </span>
+    </div>
 </div>
 
 <style>
 	.face-container {
 		display: flex;
 		justify-content: center;
-		align-items: end;
+		align-items: flex-end;
 		gap: 0.5rem;
 		font-family: monospace; /* monospace keeps the ASCII alignment neat */
 		font-size: 1rem; /* BIG EYES */
@@ -90,12 +96,20 @@
         cursor: default;
         user-select: none;
 	}
-
+	.eye-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1px; /* Space between brow and eye */
+    }
+    .eyebrow {
+        font-size: 1.5rem;
+        line-height: 0.5;
+    }
 	.eye-socket {
 		display: inline-flex;
 		align-items: center;
 	}
-
 	.pupil-bounds {
 		display: inline-block;
 		width: 45px; /* eye interior width */
@@ -104,19 +118,16 @@
 		align-items: center;
 		justify-content: center;
 	}
-
 	.pupil {
 		display: inline-block;
 		transition: transform 0.1s ease-out; /* smooths the jitter */
         color: black;
         font-size: 3rem;
 	}
-    
     .nose {
         position: relative;
-        top: 10px;
+        bottom: 5px;
     }
-
 	/* 
        MOBILE
        when screen is small (sm), force eyes to look down 

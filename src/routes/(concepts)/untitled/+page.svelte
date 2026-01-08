@@ -1,6 +1,6 @@
 <!-- page title -->
 <svelte:head>
-    <title>concept: receipted</title>
+    <title>concept: untitled</title>
 </svelte:head>
 
 <div class="">
