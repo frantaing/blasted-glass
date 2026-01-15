@@ -20,12 +20,20 @@
     // Set flag to 'true'
     isNavigating = true;
     cancel();
-    await untypeAll();
+    await untypeAll(); // play typewriter animation
 
-    // Navigate now!
-    await goto(to.url);
+    // check if the destination is external or internal
+    // location.origin is "https://blasted-glass/[x].com"
+    // to.url.origin is "https://[x].com"
+    if (to.url.origin === location.origin) {
+        // INTERNAL: use sveltekit fast router
+        await goto(to.url);
+    } else {
+        // EXTERNAL: use standard browser nav
+        window.location.assign(to.url.href);
+    }
     
-    // Reset the flag in case nagivation oopsies
+    // reset the flag in case nagivation oopsies
     isNavigating = false;
   });
 </script>
