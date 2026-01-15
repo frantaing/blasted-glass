@@ -16,16 +16,11 @@
     </section>
     <!-- Navigation -->
     <section class="flex flex-col gap-5">
-        <nav class="flex flex-col gap-2">
-            <a href="/receipted" class="group navlink flex items-center gap-1 hover:bg-white">
+        <nav class="flex flex-col">
+            <a href="/concepts" class="group navlink flex items-center gap-1 hover:bg-white">
                 <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
                 <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'RECEIPTED'}></span>
-            </a>
-            <a href="/untitled" class="group navlink flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'UNTITLED'}></span>
+                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'CONCEPTS'}></span>
             </a>
         </nav>
     </section>
