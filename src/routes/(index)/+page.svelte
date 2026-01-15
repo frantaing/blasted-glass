@@ -8,8 +8,11 @@
 <div class="flex flex-col gap-7 w-screen max-w-sm h-screen max-h-80 text-left">
 	<!-- Heading & Description -->
     <section>
-        <h1 use:typewriter={'hi, welcome to my sandbox!'}>.</h1>       
-        <p use:typewriter={"this is my personal UI vault! it's my playground, where i can make random UI/website/concept/design ideas that pop into my head."}></p>    
+        <h1 use:typewriter={'hi, welcome to my sandbox!'}>.</h1>
+       <div class="flex flex-col gap-3">
+            <p use:typewriter={"this is my personal UI vault! it's my playground, where i can make random UI/website/concept/design ideas that pop into my head."}></p>    
+            <p use:typewriter={"you can also find links to website recreation's i've made!"}></p>
+       </div>   
     </section>
     <!-- Navigation -->
     <section class="flex flex-col gap-5">
