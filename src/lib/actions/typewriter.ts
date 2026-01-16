@@ -15,7 +15,7 @@ let isFirstRunOnPageLoad = true;
 // --- Config ---
 const initialBlinkDelay = 1700;
 const delayBetweenElements = 200;
-const typingSpeed = 10; // ms V
+const typingSpeed = 7; // ms V
 const untypeSpeed = 5; 
 
 // --- Typing Logic ---
