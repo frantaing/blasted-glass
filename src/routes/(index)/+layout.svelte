@@ -44,6 +44,8 @@
   
   <!-- Background overlay -->
   <div class="animate-overlay-on-load z-10 flex justify-center items-center w-full absolute inset-0 p-10 font-general text-white bg-black/90">
-    {@render children()}
+        <div class="flex flex-col gap-7 w-screen max-w-sm max-h-screen text-left">  
+          {@render children()}
+        </div>
   </div>
 </div>
