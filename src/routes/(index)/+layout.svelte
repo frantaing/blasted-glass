@@ -4,20 +4,20 @@
   // taiwind
   import '../../app.css';
 
-  // Import logic for typewriter navigation
+  // import typewriter
   import { beforeNavigate, goto } from '$app/navigation';
   import { untypeAll } from '$lib/actions/typewriter';
 	
   let { children } = $props();
   
-  // Flag to track if typewriter animating is running
+  // flag to track if typewriter animating is running
   let isNavigating = false;
 
   beforeNavigate(async ({ to, cancel }) => {
-    // If 'to'=null OR if navigation is happening, STOP!
+    // if 'to'=null OR if navigation is happening, STOP!
     if (!to || isNavigating) return;
 
-    // Set flag to 'true'
+    // set flag to 'true'
     isNavigating = true;
     cancel();
     await untypeAll(); // play typewriter animation
