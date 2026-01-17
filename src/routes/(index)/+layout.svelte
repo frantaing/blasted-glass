@@ -1,11 +1,7 @@
-// src/routes/(index)/+layout.svelte
-
-<!-- The layout for indexes -->
-
 <script lang="ts">
   // Import: Taiwind
   import '../../app.css';
-
+  
   // Import: typewriter
   import { beforeNavigate, afterNavigate, goto } from '$app/navigation';
   import { untypeAll, measureContent } from '$lib/actions/typewriter';
@@ -18,26 +14,36 @@
   // References for index container measurements
   let contentContainer: HTMLDivElement;
   let calculatedHeight = $state<number | null>(null);
-
+  
   afterNavigate(() => {
-    // After navigation completes, measure the full content height
-    setTimeout(() => {
-      if (contentContainer) {
-        const height = measureContent(contentContainer);
-        calculatedHeight = height;
-      }
-    }, 50); // Small delay to ensure DOM is ready
+    // After navigation completes, measure FIRST (while still invisible!)
+    if (contentContainer) {
+      const height = measureContent(contentContainer);
+      calculatedHeight = height;
+      
+      // Then wait a frame for the height to apply and container to re-center
+      requestAnimationFrame(() => {
+        // Small additional delay to finish re-centering
+        setTimeout(() => {
+          // Now the container is should be centered with new height
+          // And the typewriter action will start automatically when mounted
+        }, 100);
+      });
+    }
   });
-
+  
   beforeNavigate(async ({ to, cancel }) => {
     // If 'to'=null OR if navigation is happening, STOP!
     if (!to || isNavigating) return;
-
+    
     // Set flag to 'true'
     isNavigating = true;
     cancel();
     await untypeAll(); // play typewriter animation
-
+    
+    // Delay after untyping before loading new content
+    await new Promise(resolve => setTimeout(resolve, 200));
+    
     // Check if the destination is external or internal
     if (to.url.origin === location.origin) {
         // INTERNAL: use sveltekit fast router
