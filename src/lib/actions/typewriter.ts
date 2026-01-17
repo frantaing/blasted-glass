@@ -3,13 +3,18 @@
 
 // --- State Management ---
 interface TypewriterActionItem {
-	element: HTMLElement;
-	text: string;
+  element: HTMLElement;
+  text: string;
+}
+
+interface ElementTextMap {
+  element: HTMLElement;
+  text: string;
 }
 
 const queue: TypewriterActionItem[] = [];
 const activeElements: HTMLElement[] = []; // Track everything to untype it later 
-
+const elementTextMap: ElementTextMap[] = []; // Store original text for each element
 let isRunning = false;
 let isFirstRunOnPageLoad = true;
 
@@ -21,8 +26,8 @@ const untypeSpeed = 5;
 
 // --- Typing Logic ---
 async function processQueue() {
-	if (isRunning || queue.length === 0) return;
-	isRunning = true;
+  if (isRunning || queue.length === 0) return;
+  isRunning = true;
 	
 	const item = queue.shift();
 	if (!item) {
@@ -100,20 +105,43 @@ export function untypeAll() {
 	});
 }
 
+// --- Measure Content ---
+export function measureContent(container: HTMLElement): number {
+	// Clone the container
+	const clone = container.cloneNode(true) as HTMLElement;
+	
+	// Make invisible but take up space
+	clone.style.position = 'absolute';
+	clone.style.visibility = 'hidden';
+	clone.style.height = 'auto';
+	clone.style.pointerEvents = 'none';
+	
+	// Find all elements that have typewriter text
+	const cloneElements = clone.querySelectorAll('*');
+	cloneElements.forEach(el => {
+		const htmlEl = el as HTMLElement;
+		const originalText = htmlEl.getAttribute('data-typewriter-text');
+		if (originalText) {
+			htmlEl.textContent = originalText;
+		}
+	});
+	
+	// Add to DOM temporarily
+	document.body.appendChild(clone);
+	// Measure
+	const height = clone.offsetHeight;
+	// Remove
+	document.body.removeChild(clone);
+	
+	return height;
+}
+
 // --- Action ---
 export function typewriter(element: HTMLElement, text: string) {
-	// Check if this element is inside a measurement container
-	const isInMeasureContainer = element.closest('[data-no-typewriter="true"]');
+	// Store full text as data attribute for measurement
+	element.setAttribute('data-typewriter-text', text);
 	
-	if (isInMeasureContainer) {
-		// Don't animate, just set the text immediately
-		element.textContent = text;
-		return {
-			destroy() {}
-		};
-	}
-	
-	// Normal typewriter behavior for visible elements
+	// Clear any existing text nodes
 	const textNode = Array.from(element.childNodes).find(
 		node => node.nodeType === 3 && node.textContent?.trim()
 	);
@@ -122,6 +150,7 @@ export function typewriter(element: HTMLElement, text: string) {
 	
 	// Add to active list (for untyping later)
 	activeElements.push(element);
+	elementTextMap.push({ element, text });
 	
 	// Add to queue (for typing now)
 	queue.push({ element, text });
@@ -134,6 +163,10 @@ export function typewriter(element: HTMLElement, text: string) {
 			// Remove from active list when element is removed from DOM
 			const index = activeElements.indexOf(element);
 			if (index > -1) activeElements.splice(index, 1);
+			
+			// Remove from text map
+			const mapIndex = elementTextMap.findIndex(item => item.element === element);
+			if (mapIndex > -1) elementTextMap.splice(mapIndex, 1);
 			
 			// Reset queue and running state if page is empty
 			if (activeElements.length === 0) {
