@@ -23,7 +23,7 @@ let pageStartDelay = 0;
 // --- Config ---
 const initialBlinkDelay = 1700;
 const delayBetweenElements = 200;
-const typingSpeed = 7; // ms
+const typingSpeed = 5; // ms
 const untypeSpeed = 5;
 
 // --- Typing Logic ---
