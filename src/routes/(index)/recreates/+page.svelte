@@ -25,7 +25,7 @@
             <a href="https://github.com/frantaing/monstercat-page-recreate" class="group navlink-sec flex items-center gap-1 hover:bg-white">
                 <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'|'}></span>
                 <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'REPO'}></span>
+                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'</>'}></span>
             </a>
         </div>
         <div class="flex justify-between gap-1">
@@ -37,7 +37,7 @@
             <a href="https://github.com/frantaing/monogram-shop-recreate" class="group navlink-sec flex items-center gap-1 hover:bg-white">
                 <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'|'}></span>
                 <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'REPO'}></span>
+                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'</>'}></span>
             </a>
         </div>
         <div class="flex justify-between gap-1">
@@ -49,7 +49,7 @@
             <a href="https://github.com/frantaing/backstagetalks-recreate" class="group navlink-sec flex items-center gap-1 hover:bg-white">
                 <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'|'}></span>
                 <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'REPO'}></span>
+                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'</>'}></span>
             </a>
         </div>
         <div class="flex justify-between gap-1">
@@ -61,7 +61,7 @@
             <a href="https://github.com/frantaing/ableton-home-page" class="group navlink-sec flex items-center gap-1 hover:bg-white">
                 <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'|'}></span>
                 <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'REPO'}></span>
+                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'</>'}></span>
             </a>
         </div>
         <div class="flex justify-between gap-1">
@@ -73,7 +73,7 @@
             <a href="https://github.com/frantaing/abstract-help-page" class="group navlink-sec flex items-center gap-1 hover:bg-white">
                 <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'|'}></span>
                 <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'REPO'}></span>
+                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'</>'}></span>
             </a>
         </div>
     </nav>
