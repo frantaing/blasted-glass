@@ -1,4 +1,3 @@
-<!-- src/routes/+page.svelte -->
 <!-- Homepage index -->
 
 <script lang="ts">
