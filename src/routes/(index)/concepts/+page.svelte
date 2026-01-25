@@ -24,9 +24,6 @@
             text="UNTITLED" 
         />
     </nav>
-    <a href="/" class="group navlink flex items-center gap-0.5 hover:bg-white">
-        <span class="type-me mr-1 text-sm font-black group-hover:hidden" use:typewriter={'//'}></span>
-        <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-4 h-3 group-hover:block"/>
-        <span class="group type-me flex items-center text-sm group-hover:text-black" use:typewriter={'GO BACK'}></span>
-    </a>
+    <!-- Go back -->
+    <a href="/" class="w-fit mt-10 text-sm hover:underline type-me" use:typewriter={'GO BACK'}>.</a>
 </section>

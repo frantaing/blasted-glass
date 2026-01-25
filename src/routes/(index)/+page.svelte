@@ -39,4 +39,4 @@
     </nav>
 </section>
 <!-- github -->
-<a href="/" class="mt-10 text-sm hover:underline type-me" use:typewriter={'@frantaing'}>.</a>
+<a href="https://github.com/frantaing/blasted-glass" class="w-fit mt-10 text-sm hover:underline type-me" use:typewriter={'@frantaing'}>.</a>
