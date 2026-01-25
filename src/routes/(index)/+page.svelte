@@ -2,6 +2,8 @@
 
 <script lang="ts">
     import { typewriter } from '$lib/actions/typewriter';
+    import NavLink from '$lib/components/NavLink.svelte';
+    import SmallLink from '$lib/components/SmallLink.svelte';
 </script>
 
 <!-- Heading & Description -->
@@ -15,16 +17,14 @@
 <!-- Web Navigation -->
 <section class="flex flex-col gap-5">
     <nav class="flex flex-col">
-        <a href="/concepts" class="group navlink flex items-center gap-1 hover:bg-white">
-            <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-            <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-            <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'CONCEPTS'}></span>
-        </a>
-        <a href="/recreates" class="group navlink flex items-center gap-1 hover:bg-white">
-            <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-            <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-            <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'RECREATES'}></span>
-        </a>
+        <NavLink 
+            href="/concepts" 
+            text="CONCEPTS" 
+        />
+        <NavLink 
+            href="/recreates" 
+            text="RECREATES" 
+        />
     </nav>
 </section>
 <!-- Design Navigation -->
@@ -33,12 +33,13 @@
             <p use:typewriter={"i've also done some design stuff. check them out below!"}></p>    
     </div> 
     <nav class="flex flex-col">
-        <a href="/designs" class="group navlink flex items-center gap-1 hover:bg-white">
-            <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-            <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-            <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'DESIGNS'}></span>
-        </a>
+        <NavLink 
+            href="/designs" 
+            text="DESIGNS" 
+        />
     </nav>
 </section>
 <!-- github -->
-<a href="/" class="mt-10 text-sm hover:underline type-me" use:typewriter={'@frantaing'}>.</a>
+<div class="w-fit mt-10">
+    <SmallLink href="https://github.com/frantaing/blasted-glass" text="@frantaing" />
+</div>
