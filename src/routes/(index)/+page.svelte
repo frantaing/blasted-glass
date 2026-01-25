@@ -3,6 +3,7 @@
 <script lang="ts">
     import { typewriter } from '$lib/actions/typewriter';
     import NavLink from '$lib/components/NavLink.svelte';
+    import SmallLink from '$lib/components/SmallLink.svelte';
 </script>
 
 <!-- Heading & Description -->
@@ -39,4 +40,6 @@
     </nav>
 </section>
 <!-- github -->
-<a href="https://github.com/frantaing/blasted-glass" class="w-fit mt-10 text-sm hover:underline type-me" use:typewriter={'@frantaing'}>.</a>
+<div class="w-fit mt-10">
+    <SmallLink href="https://github.com/frantaing/blasted-glass" text="@frantaing" />
+</div>

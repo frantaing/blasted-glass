@@ -2,7 +2,8 @@
 
 <script lang="ts">
     import { typewriter } from '$lib/actions/typewriter';
-    import NavLink from '$lib/components/NavLink.svelte';
+    import NavLink from '$lib/components/NavLink.svelte'; // NOT YET
+    import SmallLink from '$lib/components/SmallLink.svelte';
 </script>
 
 <!-- Heading & Description -->
@@ -17,9 +18,11 @@
     <nav class="flex flex-col">
         <h2 use:typewriter={"category"}>.</h2>
         
-        <p class="italic" use:typewriter={"NOT YET SORRY!"} />
+        <p class="italic" use:typewriter={"NOT YET SORRY!"}></p>
         
     </nav>
     <!-- Go back -->
-    <a href="/" class="w-fit mt-10 text-sm hover:underline type-me" use:typewriter={'GO BACK'}>.</a>
+    <div class="w-fit mt-10">
+        <SmallLink href="/" text="GO BACK" />
+    </div>
 </section>

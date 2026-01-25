@@ -5,14 +5,18 @@
     import { typewriter } from '$lib/actions/typewriter';
     import NavLink from '$lib/components/NavLink.svelte';
     import RepoLink from '$lib/components/RepoLink.svelte';
+    import SmallLink from '$lib/components/SmallLink.svelte';
 </script>
 
 <!-- Heading & Description -->
 <section>
     <h1 use:typewriter={"you're on: RECREATES"}>.</h1>
     <div class="flex flex-col gap-3">
-        <p use:typewriter={"these are recreations of certain websites. the ones grouped below are specific challenges from 'frontend practice'."}></p>    
-    </div>   
+        <p>
+            <span use:typewriter={"these are recreations of certain websites. the ones grouped below are specific challenges from "}></span>
+            <SmallLink href="https://www.frontendpractice.com/" text="frontend practice." />
+        </p>    
+    </div>
 </section>
 <!-- Navigation -->
 <section class="flex flex-col gap-5">
@@ -65,5 +69,7 @@
         </div>
     </nav>
     <!-- Go back -->
-    <a href="/" class="w-fit mt-10 text-sm hover:underline type-me" use:typewriter={'GO BACK'}>.</a>
+    <div class="w-fit mt-10">
+        <SmallLink href="/" text="GO BACK" />
+    </div>
 </section>

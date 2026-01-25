@@ -1,8 +1,10 @@
 <!-- Homepage index -->
 
 <script lang="ts">
+    // Imports
     import { typewriter } from '$lib/actions/typewriter';
     import NavLink from '$lib/components/NavLink.svelte';
+    import SmallLink from '$lib/components/SmallLink.svelte';
 </script>
 
 <!-- Heading & Description -->
@@ -25,5 +27,7 @@
         />
     </nav>
     <!-- Go back -->
-    <a href="/" class="w-fit mt-10 text-sm hover:underline type-me" use:typewriter={'GO BACK'}>.</a>
+    <div class="w-fit mt-10">
+        <SmallLink href="/" text="GO BACK" />
+    </div>
 </section>
