@@ -1,17 +1,19 @@
-/* src/app.css */
-
+/* Imports */
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import 'tailwindcss';
 
+/* Theme variables */
 @theme {
     --font-general: "VT323", mono;
 }
 
+/* CSS */
 @layer utilities {
     h1 { @apply text-4xl }
     h2 { @apply font-bold text-xl }
     p { @apply leading-tight text-base }
-    .navlink { @apply font-bold text-xl cursor-pointer }
+    .navlink { @apply w-full font-bold text-xl cursor-pointer }
+    .navlink-sec { @apply w-fit pr-2.5 font-bold whitespace-nowrap cursor-pointer }
 }
 
 /* Animations */

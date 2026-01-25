@@ -37,19 +37,19 @@
                 <!-- content heading -->
                 <h2 class="italic text-lg">Socials</h2>
                 <div class="flex gap-2">
-                    <a class="group flex relative cursor-pointer">
-                        <img src="/receipted/icons/twitter.png" class="absolute w-9 transition group-hover:opacity-0">
-                        <img src="/receipted/icons/twitteryel.png" class="w-9">
+                    <a href="#" class="group flex relative cursor-pointer">
+                        <img src="/receipted/icons/twitter.png" class="absolute w-9 transition group-hover:opacity-0" alt="Twitter" />
+                        <img src="/receipted/icons/twitteryel.png" class="w-9" alt="Twitter" />
                         <div class="absolute top-12 px-2 py-1.5 italic whitespace-nowrap bg-white border-2 border-black opacity-0 transition group-hover:opacity-100">Check out my Twitter!</div>
                     </a>
-                    <a class="group flex relative cursor-pointer">
-                        <img src="/receipted/icons/linkedin.png" class="absolute w-9 transition group-hover:opacity-0">
-                        <img src="/receipted/icons/linkedinyel.png" class="w-9">
+                    <a href="#" class="group flex relative cursor-pointer">
+                        <img src="/receipted/icons/linkedin.png" class="absolute w-9 transition group-hover:opacity-0" alt="LinkedIn" />
+                        <img src="/receipted/icons/linkedinyel.png" class="w-9" alt="LinkedIn" />
                         <div class="absolute top-12 px-2 py-1.5 italic whitespace-nowrap bg-white border-2 border-black opacity-0 transition group-hover:opacity-100">Check out my LinkedIn!</div>
                     </a>
-                    <a class="group flex relative cursor-pointer">
-                        <img src="/receipted/icons/pinterest.png" class="absolute w-9 transition group-hover:opacity-0">
-                        <img src="/receipted/icons/pinterestyel.png" class="w-9">
+                    <a href="#" class="group flex relative cursor-pointer">
+                        <img src="/receipted/icons/pinterest.png" class="absolute w-9 transition group-hover:opacity-0" alt="Pinterest" />
+                        <img src="/receipted/icons/pinterestyel.png" class="w-9" alt="Pinterest" />
                         <div class="absolute top-12 px-2 py-1.5 italic whitespace-nowrap bg-white border-2 border-black opacity-0 transition group-hover:opacity-100">Check out my Pinterest!</div>
                     </a>
                 </div>
