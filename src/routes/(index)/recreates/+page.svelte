@@ -1,7 +1,10 @@
 <!-- Homepage index -->
 
 <script lang="ts">
+    // Imports
     import { typewriter } from '$lib/actions/typewriter';
+    import NavLink from '$lib/components/NavLink.svelte';
+    import RepoLink from '$lib/components/RepoLink.svelte';
 </script>
 
 <!-- Heading & Description -->
@@ -16,64 +19,49 @@
     <nav class="flex flex-col">
         <h2 use:typewriter={"frontend mentor"}>.</h2>
         <div class="flex justify-between gap-1">
-            <a href="https://frantaing.github.io/monstercat-page-recreate/" class="group navlink flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'MONSTERCAT ALBUM PAGE'}></span>
-            </a>
-            <a href="https://github.com/frantaing/monstercat-page-recreate" class="group navlink-sec flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'|'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'</>'}></span>
-            </a>
+            <NavLink 
+                href="https://frantaing.github.io/monstercat-page-recreate/" 
+                text="MONSTERCAT ALBUM PAGE" 
+            />
+            <RepoLink 
+                href="https://github.com/frantaing/monstercat-page-recreate" 
+            />
         </div>
         <div class="flex justify-between gap-1">
-            <a href="https://frantaing.github.io/monogram-shop-recreate/" class="group navlink flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'MONOGRAM SHOP PAGE'}></span>
-            </a>
-            <a href="https://github.com/frantaing/monogram-shop-recreate" class="group navlink-sec flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'|'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'</>'}></span>
-            </a>
+            <NavLink 
+                href="https://frantaing.github.io/monogram-shop-recreate/" 
+                text="MONOGRAM SHOP PAGE" 
+            />
+            <RepoLink 
+                href="https://github.com/frantaing/monogram-shop-recreate" 
+            />
         </div>
         <div class="flex justify-between gap-1">
-            <a href="https://frantaing.github.io/backstagetalks-recreate/" class="group navlink flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'BACKSTAGETALKS MAGAZINE'}></span>
-            </a>
-            <a href="https://github.com/frantaing/backstagetalks-recreate" class="group navlink-sec flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'|'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'</>'}></span>
-            </a>
+            <NavLink 
+                href="https://frantaing.github.io/backstagetalks-recreate/" 
+                text="BACKSTAGE TALKS MAGAZINE" 
+            />
+            <RepoLink 
+                href="https://github.com/frantaing/backstagetalks-recreate" 
+            />
         </div>
         <div class="flex justify-between gap-1">
-            <a href="https://frantaing.github.io/ableton-home-page/" class="group navlink flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'ABLETON HOME PAGE'}></span>
-            </a>
-            <a href="https://github.com/frantaing/ableton-home-page" class="group navlink-sec flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'|'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'</>'}></span>
-            </a>
+            <NavLink 
+                href="https://frantaing.github.io/ableton-home-page/" 
+                text="ABLETON HOME PAGE" 
+            />
+            <RepoLink 
+                href="https://github.com/frantaing/ableton-home-page" 
+            />
         </div>
         <div class="flex justify-between gap-1">
-            <a href="https://frantaing.github.io/abstract-help-page/" class="group navlink flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'ABTRACT HELP PAGE'}></span>
-            </a>
-            <a href="https://github.com/frantaing/abstract-help-page" class="group navlink-sec flex items-center gap-1 hover:bg-white">
-                <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'|'}></span>
-                <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-                <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'</>'}></span>
-            </a>
+            <NavLink 
+                href="https://frantaing.github.io/abstract-help-page" 
+                text="ABTRACT HELP PAGE" 
+            />
+            <RepoLink 
+                href="https://github.com/frantaing/abstract-help-page" 
+            />
         </div>
     </nav>
     <a href="/" class="group navlink flex items-center gap-0.5 hover:bg-white">

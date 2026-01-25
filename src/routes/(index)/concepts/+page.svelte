@@ -2,6 +2,7 @@
 
 <script lang="ts">
     import { typewriter } from '$lib/actions/typewriter';
+    import NavLink from '$lib/components/NavLink.svelte';
 </script>
 
 <!-- Heading & Description -->
@@ -14,16 +15,14 @@
 <!-- Navigation -->
 <section class="flex flex-col gap-5">
     <nav class="flex flex-col">
-        <a href="/receipted" class="group navlink flex items-center gap-1 hover:bg-white">
-            <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-            <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-            <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'RECEIPTED'}></span>
-        </a>
-        <a href="/untitled" class="group navlink flex items-center gap-1 hover:bg-white">
-            <span class="type-me mr-1 text-xl font-black group-hover:hidden" use:typewriter={'//'}></span>
-            <img src="/assets/arrow.png" alt="link hover arrow icon" class="hidden w-6 h-5 group-hover:block"/>
-            <span class="group type-me flex items-center group-hover:text-black" use:typewriter={'UNTITLED'}></span>
-        </a>
+        <NavLink 
+            href="/receipted" 
+            text="RECEIPTED" 
+        />
+        <NavLink 
+            href="/untitled" 
+            text="UNTITLED" 
+        />
     </nav>
     <a href="/" class="group navlink flex items-center gap-0.5 hover:bg-white">
         <span class="type-me mr-1 text-sm font-black group-hover:hidden" use:typewriter={'//'}></span>
