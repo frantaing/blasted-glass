@@ -20,6 +20,8 @@
 </section>
 <!-- Navigation -->
 <section class="flex flex-col gap-5">
+
+    <!-- Frontend Mentor recreates -->
     <nav class="flex flex-col">
         <h2 use:typewriter={"frontend mentor"}>.</h2>
         <div class="flex justify-between gap-1">
@@ -68,6 +70,19 @@
             />
         </div>
     </nav>
+
+    <nav class="flex flex-col">
+        <div class="flex justify-between gap-1">
+            <NavLink 
+                href="/gemini" 
+                text="GEMINI HOME PAGE" 
+            />
+            <RepoLink 
+                href="https://github.com/frantaing/monstercat-page-recreate" 
+            />
+        </div>
+    </nav>
+
     <!-- Go back -->
     <div class="w-fit mt-10">
         <SmallLink href="/" text="GO BACK" />
