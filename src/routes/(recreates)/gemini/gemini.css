@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* =======[ THEME ]======== */
+@theme {
+    /*---[ FONTS ]---*/
+    --font-title: 'Montserrat', sans-serif;
+    --font-secondary: 'Geist', sans-serif;
+    /*---------------*/
+
+    /*---[ COLORS ]---*/
+    --color-primary: #FFF; /* WHITE */
+    --color-secondary: #000; /* BLACK */
+    --color-accent: #FE740E; /* ORANGE */
+    /* NAV/FOOTER BUTTON */
+    --color-orange-btn: #F9A631; /* WASHED OUT ORANGE: pill buttons */
+    /* HERO + CARD#1 GRADIENT */
+    --color-orange-hero-light: #FE7710; /* LIGHT ORANGE: hero upper */
+    --color-orange-hero-dark: #FE600A; /* DARK ORANGE: hero lower */
+    /*---------------*/
+
+    /*---[ BREAK ]---*/
+    --breakpoint-xs: 600px;
+    /*---------------*/
+}
+/* ======================== */
