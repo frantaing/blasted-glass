@@ -1,5 +1,3 @@
-<!-- Homepage index -->
-
 <script lang="ts">
     // Imports
     import { typewriter } from '$lib/actions/typewriter';
@@ -15,7 +13,7 @@
         <p>
             <span use:typewriter={"these are recreations of certain websites. the ones grouped below are specific challenges from "}></span>
             <SmallLink href="https://www.frontendpractice.com/" text="frontend practice." />
-        </p>    
+        </p>
     </div>
 </section>
 <!-- Navigation -->
@@ -78,7 +76,7 @@
                 text="GEMINI HOME PAGE" 
             />
             <RepoLink 
-                href="https://github.com/frantaing/monstercat-page-recreate" 
+                href="#" 
             />
         </div>
     </nav>
