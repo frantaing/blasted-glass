@@ -1,12 +1,13 @@
 <script lang="ts">
     // Import components here!
     // NavBar and Footer
+    import './gemini.scss';
     import NavBar from "$lib/components/gemini/NavBar.svelte";
 
     let { children } = $props();
 </script>
 
-<div class="min-h-screen w-full bg-white">
+<div class="w-full min-h-screen font-sans bg-white">
     <!-- Navbar here! -->
     <NavBar />
 
