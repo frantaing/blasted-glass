@@ -67,7 +67,7 @@
 
 button, a {
     &:hover {
-        @apply opacity-80 cursor-pointeropacity: 80%;
+        @apply opacity-80 cursor-pointer;
     }
 
     img {
