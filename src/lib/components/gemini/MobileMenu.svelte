@@ -12,7 +12,7 @@
 >
 	<!-- MAIN MENU VIEW -->
 	{#if activeSubmenu === null}
-		<div class="flex flex-col gap-8">
+		<div class="flex flex-col gap-8 ">
 			<!-- Prices -->
 			<a href="/gemini">Prices</a>
 
@@ -71,14 +71,57 @@
 
 	<!-- 3. SUBMENU: INSTITUTIONS (add here...) -->
 	{:else if activeSubmenu === 'institutions'}
-		<div class="flex flex-col gap-4">
-			<span class="opacity-50 text-sm">Institutions Links Here...</span>
+		<div class="flex flex-col gap-1 w-full text-xl">
+			<span class="pl-3 pt-2 pb-6.5 text-xs opacity-70">Institutional Products</span>
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">Gemini Insitutional</span>
+				<p>Tailored solutions for institutions.</p>
+			</a>
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">Exchange</span>
+				<p>Trader digital assets at scale.</p>
+			</a>
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">Custody</span>
+				<p>Institutional-grade crypto cold storage.</p>
+			</a>
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">OTC</span>
+				<p>Trade with deep liquidity and dedicated support.</p>
+			</a>
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">Staking</span>
+				<p>Receive up to 6% APR on your crypto.</p>
+			</a>
 		</div>
 
 	<!-- 4. SUBMENU: RESOURCES (add here...) -->
 	{:else if activeSubmenu === 'resources'}
-		<div class="flex flex-col gap-4">
-			<span class="opacity-50 text-sm">Resources Links Here...</span>
+		<div class="flex flex-col gap-1 w-full text-xl">
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">The Gemini Blog</span>
+				<p>News, insights, and updates from Gemini.</p>
+			</a>
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">Careers</span>
+				<p>Build the future of finance with us.</p>
+			</a>
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">About</span>
+				<p>Why we built Gemini.</p>
+			</a>
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">Trust Center</span>
+				<p>Building trust through transparency.</p>
+			</a>
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">Cryptopedia</span>
+				<p>Your trusted source for all things crypto.</p>
+			</a>
+			<a href="#" class="group submenu-link">
+				<span class="text-sm">Support</span>
+				<p>24/7 help from our global support team.</p>
+			</a>
 		</div>
 	{/if}
 </div>
