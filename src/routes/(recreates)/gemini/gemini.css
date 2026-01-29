@@ -24,3 +24,9 @@
     /*---------------*/
 }
 /* ======================== */
+
+@layer utilities {
+    button, a {
+        @apply cursor-pointer;
+    }
+}
