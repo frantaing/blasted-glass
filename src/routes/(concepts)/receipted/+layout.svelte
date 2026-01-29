@@ -2,7 +2,7 @@
     // tailwind
     import '../../../app.css';
     // components
-	import NavBar from '$lib/components/receipted/Navigation.svelte';
+	import NavBar from '$lib/components/receipted/NavBar.svelte';
 	
     let { children } = $props();
 </script>

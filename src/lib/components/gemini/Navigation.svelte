@@ -1,33 +1,37 @@
-<script lang="ts">
-	// Imports
+<script lang="ts">	
+	// Mobile menu toggle
+	let isMenuOpen = $state(false);						// Is the menu open?
+	function toggleMenu() { isMenuOpen = !isMenuOpen }	// Toggle menu
 </script>
 
-<!-- Navba -->
-<nav class="flex justify-center items-center w-full h-fit px-5 xs:px-[45px] md:px-12 lg:px-20 pl-6 xs:pl-12 py-[11px] font-medium text-sm text-primary bg-secondary">
-	<div class="flex justify-between items-center w-full xl:max-w-304">
+<nav class="flex justify-center items-center relative w-full h-fit px-5 xs:px-[45px] 2lg:px-20 pl-6 xs:pl-12 py-[10.8px] font-medium text-sm text-primary bg-secondary">
+	
+	<!-- NavBar -->
+	<div class="flex justify-between items-center w-full 2lg:max-w-304">
 		<!-- Left: logo + title -->
-		<section class="btn-content cursor-pointer">
+		<section class="flex items-center gap-1 cursor-pointer">
 			<img src="gemini/logo.png" alt="Logo" class="w-6.5 xs:w-5.5" />
 			<span class="hidden xs:block font-title font-semibold text-lg">GEMINI</span>
 		</section>
 
 		<!-- DESLTOP: Middle: links -->
 		<section class="hidden lg:flex justify-center items-center gap-5.5 pl-24">
+			<!-- Prices -->
 			<a href="/gemini">Prices</a>
 			<!-- All Products -->
 			<button class="group">
 				<!-- The button itself -->
-				<div class="btn-content">
+				<div class="navbar-dropdown">
 					<span>All Products</span>
 					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
 				</div>
-				<!-- Dropdown content -->
+				<!-- Dropdown content px-5 xs:px-[45px] lg:px-12 pl-6 -->
 				<div></div>
 			</button>
 			<!-- Institutions -->
 			<button class="group">
 				<!-- The button itself -->
-				<div class="btn-content">
+				<div class="navbar-dropdown">
 					<span>Institutions</span>
 					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
 				</div>
@@ -37,7 +41,7 @@
 			<!-- Resources -->
 			<button class="group">
 				<!-- The button itself -->
-				<div class="btn-content">
+				<div class="navbar-dropdown">
 					<span>Resources</span>
 					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
 				</div>
@@ -54,12 +58,54 @@
 			<!-- Get start button -->
 			<a href="/gemini" class="orange-btn">Get started</a>
 
-			<!-- MOBILE: hamburger menu -->
-			<button class="lg:hidden hover:opacity-100!">
-				<img src="/gemini/menu.png" alt="Toggle mobile menu" class="w-5!" />
+			<!-- MOBILE: Hamburger menu -->
+			<button onclick={toggleMenu} class="lg:hidden w-5 transition-none! hover:opacity-100!">
+				<img
+					src={isMenuOpen ? '/gemini/close.png' : '/gemini/menu.png'}
+					alt={isMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
+					class="w-5!"
+				/>
 			</button>
 		</section>
 	</div>
+
+	<!-- Mobile menu -->
+	{#if isMenuOpen}
+		<div class="absolute top-full left-0 w-full pr-5 pb-4 bg-black">
+			<!-- Prices -->
+			<a href="/gemini">Prices</a>
+			<!-- All Products -->
+			<button class="group">
+				<!-- The button itself -->
+				<div class="navbar-dropdown">
+					<span>All Products</span>
+					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
+				</div>
+				<!-- Dropdown content -->
+				<div></div>
+			</button>
+			<!-- Institutions -->
+			<button class="group">
+				<!-- The button itself -->
+				<div class="navbar-dropdown">
+					<span>Institutions</span>
+					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
+				</div>
+				<!-- Dropdown content -->
+				<div></div>
+			</button>
+			<!-- Resources -->
+			<button class="group">
+				<!-- The button itself -->
+				<div class="navbar-dropdown">
+					<span>Resources</span>
+					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
+				</div>
+				<!-- Dropdown content -->
+				<div></div>
+			</button>
+		</div>
+	{/if}
 </nav>
 
 <style>
@@ -71,14 +117,14 @@
 			@apply opacity-80 cursor-pointer transition;
 		}
 		img {
-			@apply w-4 h-4.5 mt-px transform transition-all group-hover:rotate-180;
+			@apply w-5 mt-px transform transition-transform group-hover:rotate-180;
 		}
 		&.orange-btn {
 			@apply px-4 py-[9px] font-secondary text-[15px] text-secondary bg-orange-btn rounded-full;
 		}
 	}
 
-	.btn-content {
-		@apply flex items-center gap-1;
+	.navbar-dropdown {
+		@apply flex items-center gap-0.5;
 	}
 </style>
