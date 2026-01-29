@@ -28,9 +28,9 @@
 		<section class="flex items-center gap-1 cursor-pointer min-w-[120px]">
 			{#if isMenuOpen && activeSubmenu !== null}
 				<!-- BACK BUTTON (Only visible on mobile when submenu is active) -->
-				<button onclick={goBack} class="lg:hidden flex items-center gap-2 hover:opacity-80 transition-opacity text-primary">
-					<img src="/gemini/chevron-down.png" alt="Back" class="w-5 rotate-90" />
-					<span class="font-semibold text-lg">BACK</span>
+				<button onclick={goBack} class="lg:hidden flex items-center gap-1.5 hover:opacity-100!">
+					<img src="/gemini/chevron-down.png" alt="Back" class="w-6 rotate-90" />
+					<span class="font-semibold text-xl">Back</span>
 				</button>
 
 				<!-- DESKTOP LOGO (Keep showing logo on desktop even if state is weird) -->
