@@ -2,7 +2,7 @@
     // Import components here!
     // NavBar and Footer
     import './gemini.css';
-    import NavBar from "$lib/components/gemini/NavBar.svelte";
+    import Navigation from "$lib/components/gemini/Navigation.svelte";
 
     let { children } = $props();
 </script>
@@ -15,8 +15,8 @@
 </svelte:head>
 
 <div class="w-full min-h-screen font-sans bg-white">
-    <!-- Navbar here! -->
-    <NavBar />
+    <!-- Navigation (NavBar + Mobile menu) here! -->
+    <Navigation />
 
     <!-- Page(s) goes here! -->
     <main>

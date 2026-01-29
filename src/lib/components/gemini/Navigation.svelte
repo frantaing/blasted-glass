@@ -2,12 +2,11 @@
 	// Imports
 </script>
 
-<nav
-	class="flex justify-center items-center w-full h-fit px-5 xs:px-[45px] md:px-12 lg:px-[6%] pl-6 xs:pl-12 py-[11px] font-medium text-sm text-primary bg-secondary"
->
+<!-- Navba -->
+<nav class="flex justify-center items-center w-full h-fit px-5 xs:px-[45px] md:px-12 lg:px-20 pl-6 xs:pl-12 py-[11px] font-medium text-sm text-primary bg-secondary">
 	<div class="flex justify-between items-center w-full xl:max-w-304">
 		<!-- Left: logo + title -->
-		<section class="flex items-center gap-1 cursor-pointer">
+		<section class="btn-content cursor-pointer">
 			<img src="gemini/logo.png" alt="Logo" class="w-6.5 xs:w-5.5" />
 			<span class="hidden xs:block font-title font-semibold text-lg">GEMINI</span>
 		</section>
@@ -18,7 +17,7 @@
 			<!-- All Products -->
 			<button class="group">
 				<!-- The button itself -->
-				<div class="flex items-center">
+				<div class="btn-content">
 					<span>All Products</span>
 					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
 				</div>
@@ -28,7 +27,7 @@
 			<!-- Institutions -->
 			<button class="group">
 				<!-- The button itself -->
-				<div class="flex items-center">
+				<div class="btn-content">
 					<span>Institutions</span>
 					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
 				</div>
@@ -38,7 +37,7 @@
 			<!-- Resources -->
 			<button class="group">
 				<!-- The button itself -->
-				<div class="flex items-center">
+				<div class="btn-content">
 					<span>Resources</span>
 					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
 				</div>
@@ -56,8 +55,8 @@
 			<a href="/gemini" class="orange-btn">Get started</a>
 
 			<!-- MOBILE: hamburger menu -->
-			<button class="lg:hidden">
-				<img src="/gemini/menu.png" alt="Toggle mobile menu" class="w-7.5 h-5" />
+			<button class="lg:hidden hover:opacity-100!">
+				<img src="/gemini/menu.png" alt="Toggle mobile menu" class="w-5!" />
 			</button>
 		</section>
 	</div>
@@ -68,16 +67,18 @@
 
 	button,
 	a {
-		@apply transition;
-
 		&:hover {
-			@apply opacity-80 cursor-pointer;
+			@apply opacity-80 cursor-pointer transition;
 		}
-		& img {
-			@apply w-5 mb-0.5 transform transition-all group-hover:rotate-180;
+		img {
+			@apply w-4 h-4.5 mt-px transform transition-all group-hover:rotate-180;
 		}
 		&.orange-btn {
 			@apply px-4 py-[9px] font-secondary text-[15px] text-secondary bg-orange-btn rounded-full;
 		}
+	}
+
+	.btn-content {
+		@apply flex items-center gap-1;
 	}
 </style>
