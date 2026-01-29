@@ -1,7 +1,11 @@
 <script lang="ts">	
+	// Imports
+	import { fade } from "svelte/transition";			// Fade in transition
+
 	// Mobile menu toggle
 	let isMenuOpen = $state(false);						// Is the menu open?
 	function toggleMenu() { isMenuOpen = !isMenuOpen }	// Toggle menu
+
 </script>
 
 <nav class="flex justify-center items-center relative w-full h-fit px-5 xs:px-[45px] 2lg:px-20 pl-6 xs:pl-12 py-[10.8px] font-medium text-sm text-primary bg-secondary">
@@ -71,15 +75,19 @@
 
 	<!-- Mobile menu -->
 	{#if isMenuOpen}
-		<div class="absolute top-full left-0 w-full pr-5 pb-4 bg-black">
+		<!-- Fade in transition only when opening the menu! -->
+		<div
+			class="lg:hidden flex flex-col gap-8 absolute top-full left-0 w-full h-screen pl-4 pr-3.5 pt-5.5 text-xl bg-black transition-opacity" 
+			in:fade={{ duration: 100 }}
+		>
 			<!-- Prices -->
 			<a href="/gemini">Prices</a>
 			<!-- All Products -->
-			<button class="group">
+			<button class="flex flex-col">
 				<!-- The button itself -->
-				<div class="navbar-dropdown">
+				<div class="navbar-dropdown justify-between">
 					<span>All Products</span>
-					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
+					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" class="w-6! opacity-60 -rotate-90" />
 				</div>
 				<!-- Dropdown content -->
 				<div></div>
@@ -87,9 +95,9 @@
 			<!-- Institutions -->
 			<button class="group">
 				<!-- The button itself -->
-				<div class="navbar-dropdown">
+				<div class="navbar-dropdown justify-between">
 					<span>Institutions</span>
-					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
+					<img src="/gemini/chevron-down.png" alt="Dropdown arrow"  class="w-6! opacity-60 -rotate-90" />
 				</div>
 				<!-- Dropdown content -->
 				<div></div>
@@ -97,13 +105,15 @@
 			<!-- Resources -->
 			<button class="group">
 				<!-- The button itself -->
-				<div class="navbar-dropdown">
+				<div class="navbar-dropdown justify-between">
 					<span>Resources</span>
-					<img src="/gemini/chevron-down.png" alt="Dropdown arrow" />
+					<img src="/gemini/chevron-down.png" alt="Dropdown arrow"  class="w-6! opacity-60 -rotate-90" />
 				</div>
 				<!-- Dropdown content -->
 				<div></div>
 			</button>
+			<!-- 'Sign in' link -->
+			<a href="/gemini">Sign in</a>
 		</div>
 	{/if}
 </nav>
@@ -126,5 +136,8 @@
 
 	.navbar-dropdown {
 		@apply flex items-center gap-0.5;
+	}
+	.mobile-item {
+		@apply flex;
 	}
 </style>
