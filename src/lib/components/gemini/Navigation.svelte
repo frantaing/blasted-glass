@@ -77,7 +77,7 @@
 	{#if isMenuOpen}
 		<!-- Fade in transition only when opening the menu! -->
 		<div
-			class="lg:hidden flex flex-col gap-8 absolute top-full left-0 w-full h-screen pl-4 pr-3.5 pt-5.5 text-xl bg-black transition-opacity" 
+			class="lg:hidden flex flex-col gap-8 absolute top-full left-0 w-full h-screen xs:px-[45px] xs:pl-12 pl-4 pr-3.5 pt-5.5 text-xl bg-black transition-opacity" 
 			in:fade={{ duration: 100 }}
 		>
 			<!-- Prices -->
@@ -136,8 +136,5 @@
 
 	.navbar-dropdown {
 		@apply flex items-center gap-0.5;
-	}
-	.mobile-item {
-		@apply flex;
 	}
 </style>
