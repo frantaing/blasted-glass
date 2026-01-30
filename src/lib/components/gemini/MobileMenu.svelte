@@ -1,5 +1,5 @@
 <script lang="ts">
-	// Imports
+	// IMPORTS
 	import { fade } from "svelte/transition"; // Fade in transition for opening menu
 
 	// Bind to update parent (Navigation) from "GEMINI" -> "BACK"
@@ -69,7 +69,7 @@
 			</a>
 		</div>
 
-	<!-- 3. SUBMENU: INSTITUTIONS (add here...) -->
+	<!-- SUBMENU: INSTITUTIONS -->
 	{:else if activeSubmenu === 'institutions'}
 		<div class="flex flex-col gap-1 w-full text-xl">
 			<span class="pl-3 pt-2 pb-6.5 text-xs opacity-70">Institutional Products</span>
@@ -95,7 +95,7 @@
 			</a>
 		</div>
 
-	<!-- 4. SUBMENU: RESOURCES (add here...) -->
+	<!-- SUBMENU: RESOURCES -->
 	{:else if activeSubmenu === 'resources'}
 		<div class="flex flex-col gap-1 w-full text-xl">
 			<a href="#" class="group submenu-link">
@@ -127,9 +127,6 @@
 </div>
 
 <style>
-
-	/* MAKE CUSTOM CLASSES FOR REPEAT STYLES!!! */
-
 	@reference '../../../routes/(recreates)/gemini/gemini.css';
 
 	.trigger-text {
