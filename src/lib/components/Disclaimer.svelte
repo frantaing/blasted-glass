@@ -6,17 +6,17 @@
     let isOpen = $state(false);
 </script>
 
-<div class="mt-3 w-full max-w-xl">
+<div class="mt-4 w-full max-w-xl">
     
     <!-- Button -->
     <button 
         onclick={() => isOpen = !isOpen}
-        class="group flex items-center gap-2 text-xs font-bold text-white/70 hover:text-white transition-colors uppercase"
+        class="group flex items-center gap-2 text-sm font-bold text-white/70 hover:text-white transition-colors uppercase"
     >
         <!-- [ + ] Button -->
         <span class="text-yellow-500 flex gap-px">
             <span use:typewriter={'['}></span>
-            <span>{isOpen ? '-' : '+'}</span>
+            <span use:typewriter={isOpen ? '-' : '+'}></span>
             <span use:typewriter={']'}></span>
         </span>
 
