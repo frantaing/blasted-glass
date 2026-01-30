@@ -34,7 +34,7 @@
 	}
 </script>
 
-<nav class="flex justify-center items-center relative w-full h-fit px-5 xs:px-[45px] 2lg:px-20 pl-6 xs:pl-12 py-[10.8px] font-medium text-sm text-primary bg-secondary">
+<nav class="flex justify-center items-center fixed w-full h-fit px-5 xs:px-[45px] 2lg:px-20 pl-6 xs:pl-12 py-[10.8px] font-medium text-sm text-primary bg-secondary">
 	
 	<!-- NavBar -->
 	<div class="flex justify-between items-center w-full 2lg:max-w-304">
