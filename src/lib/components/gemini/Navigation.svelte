@@ -62,7 +62,7 @@
 		</section>
 
 		<!-- DESKTOP: Middle links -->
-		<section class="hidden lg:flex justify-center items-center gap-5.5 pl-24">
+		<section class="hidden lg:flex justify-center items-center gap-5.5 pl-16">
 			<!-- Prices -->
 			<a href="/gemini">Prices</a>
 			<!-- All Products -->
