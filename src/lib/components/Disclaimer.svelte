@@ -3,20 +3,34 @@
     import { slide } from 'svelte/transition';
     import { typewriter } from '$lib/actions/typewriter';
 
+    // [+] ICON
     let isOpen = $state(false);
+    // Track if button has been clicked yet
+    let hasInteracted = $state(false);
+    function toggle() {
+        isOpen = !isOpen;
+        // As soon as button is clicked, switch!
+        hasInteracted = true; 
+    }
 </script>
 
 <div class="mt-4 w-full max-w-xl">
     
     <!-- Button -->
     <button 
-        onclick={() => isOpen = !isOpen}
-        class="group flex items-center gap-2 text-sm font-bold text-white/70 hover:text-white transition-colors uppercase"
+        onclick={toggle}
+        class="group flex items-center gap-2 text-sm font-bold text-white/70 hover:text-white transition-colors uppercase cursor-pointer"
     >
         <!-- [ + ] Button -->
         <span class="text-yellow-500 flex gap-px">
             <span use:typewriter={'['}></span>
-            <span use:typewriter={isOpen ? '-' : '+'}></span>
+            {#if !hasInteracted}
+                <!-- Initial icon -->
+                <span use:typewriter={'+'}></span>
+            {:else}
+                <!-- Change if clicked -->
+                <span>{isOpen ? '-' : '+'}</span>
+            {/if}
             <span use:typewriter={']'}></span>
         </span>
 
