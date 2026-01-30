@@ -6,6 +6,7 @@
     import NavLink from '$lib/components/NavLink.svelte';
     import RepoLink from '$lib/components/RepoLink.svelte';
     import SmallLink from '$lib/components/SmallLink.svelte';
+    import Disclaimer from '$lib/components/Disclaimer.svelte';
 </script>
 
 <!-- Heading & Description -->
@@ -15,9 +16,11 @@
         <p>
             <span use:typewriter={"these are recreations of certain websites. the ones grouped below are specific challenges from "}></span>
             <SmallLink href="https://www.frontendpractice.com/" text="frontend practice." />
-        </p>    
+        </p>
+        <Disclaimer />   
     </div>
 </section>
+
 <!-- Navigation -->
 <section class="flex flex-col gap-5">
     <nav class="flex flex-col">
