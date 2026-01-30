@@ -4,6 +4,37 @@
 
 	// Bind to update parent (Navigation) from "GEMINI" -> "BACK"
 	let { activeSubmenu = $bindable() } = $props();
+
+	// Main menu trigger data
+	const menuTriggers = [
+		{ id: 'products', label: 'All Products' },
+		{ id: 'institutions', label: 'Institutions' },
+		{ id: 'resources', label: 'Resources' }
+	];
+	
+	// Submenu data
+	const products = [
+		{ title: 'ActiveTrader', desc: 'Take full control over your trading experience.' },
+		{ title: 'Exchange', desc: 'Effortless buying and selling of over 90+ assets.' },
+		{ title: 'Gemini Dollar', desc: 'Our USD-backed stablecoin.' },
+		{ title: 'Tokenized Stocks', desc: 'Trade U.S. stocks on the blockchain.' },
+		{ title: 'Staking', desc: 'Receive up to 12% APR on your crypto.' }
+	];
+	const institutions = [
+		{ title: 'Gemini Insitutional', desc: 'Tailored solutions for institutions.' },
+		{ title: 'Exchange', desc: 'Trader digital assets at scale.' },
+		{ title: 'Custody', desc: 'Institutional-grade crypto cold storage.' },
+		{ title: 'OTC', desc: 'Trade with deep liquidity and dedicated support.' },
+		{ title: 'Staking', desc: 'Receive up to 6% APR on your crypto.' }
+	];
+	const resources = [
+		{ title: 'The Gemini Blog', desc: 'News, insights, and updates from Gemini.' },
+		{ title: 'Careers', desc: 'Build the future of finance with us.' },
+		{ title: 'About', desc: 'Why we built Gemini.' },
+		{ title: 'Trust Center', desc: 'Building trust through transparency.' },
+		{ title: 'Cryptopedia', desc: 'Your trusted source for all things crypto.' },
+		{ title: 'Support', desc: '24/7 help from our global support team.' }
+	];
 </script>
 
 <div
@@ -13,115 +44,52 @@
 	<!-- MAIN MENU VIEW -->
 	{#if activeSubmenu === null}
 		<div class="flex flex-col gap-8 ">
-			<!-- Prices -->
 			<a href="/gemini">Prices</a>
 
-			<!-- All Products Trigger -->
-			<button onclick={() => activeSubmenu = 'products'}>
-				<div class="trigger-text">
-					<span>All Products</span>
-					<img src="/gemini/chevron-down.png" alt="Arrow" />
-				</div>
-			</button>
+			{#each menuTriggers as trigger}
+				<button onclick={() => activeSubmenu = trigger.id}>
+					<div class="trigger-text">
+						<span>{trigger.label}</span>
+						<img src="/gemini/chevron-down.png" alt="Arrow" />
+					</div>
+				</button>
+			{/each}
 
-			<!-- Institutions Trigger -->
-			<button onclick={() => activeSubmenu = 'institutions'}>
-				<div class="trigger-text">
-					<span>Institutions</span>
-					<img src="/gemini/chevron-down.png" alt="Arrow" />
-				</div>
-			</button>
-
-			<!-- Resources Trigger -->
-			<button onclick={() => activeSubmenu = 'resources'}>
-				<div class="trigger-text">
-					<span>Resources</span>
-					<img src="/gemini/chevron-down.png" alt="Arrow" />
-				</div>
-			</button>
-
-			<!-- Sign in -->
 			<a href="/gemini">Sign in</a>
 		</div>
 
 	<!-- SUBMENU: ALL PRODUCTS -->
 	{:else if activeSubmenu === 'products'}
 		<div class="flex flex-col gap-1 w-full text-xl">
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">ActiveTrader</span>
-				<p>Take full control over your trading experience.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Exchange</span>
-				<p>Effortless buying and selling of over 90+ assets.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Gemini Dollar</span>
-				<p>Our USD-backed stablecoin.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Tokenized Stocks</span>
-				<p>Trade U.S. stocks on the blockchain.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Staking</span>
-				<p>Receive up to 12% APR on your crypto.</p>
-			</a>
+			{#each products as item}
+				<a href="#" class="group submenu-link">
+					<span class="text-sm">{item.title}</span>
+					<p>{item.desc}</p>
+				</a>
+			{/each}
 		</div>
 
 	<!-- SUBMENU: INSTITUTIONS -->
 	{:else if activeSubmenu === 'institutions'}
 		<div class="flex flex-col gap-1 w-full text-xl">
 			<span class="pl-3 pt-2 pb-6.5 text-xs opacity-70">Institutional Products</span>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Gemini Insitutional</span>
-				<p>Tailored solutions for institutions.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Exchange</span>
-				<p>Trader digital assets at scale.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Custody</span>
-				<p>Institutional-grade crypto cold storage.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">OTC</span>
-				<p>Trade with deep liquidity and dedicated support.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Staking</span>
-				<p>Receive up to 6% APR on your crypto.</p>
-			</a>
+			{#each institutions as item}
+				<a href="#" class="group submenu-link">
+					<span class="text-sm">{item.title}</span>
+					<p>{item.desc}</p>
+				</a>
+			{/each}
 		</div>
 
 	<!-- SUBMENU: RESOURCES -->
 	{:else if activeSubmenu === 'resources'}
 		<div class="flex flex-col gap-1 w-full text-xl">
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">The Gemini Blog</span>
-				<p>News, insights, and updates from Gemini.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Careers</span>
-				<p>Build the future of finance with us.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">About</span>
-				<p>Why we built Gemini.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Trust Center</span>
-				<p>Building trust through transparency.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Cryptopedia</span>
-				<p>Your trusted source for all things crypto.</p>
-			</a>
-			<a href="#" class="group submenu-link">
-				<span class="text-sm">Support</span>
-				<p>24/7 help from our global support team.</p>
-			</a>
+			{#each resources as item}
+				<a href="#" class="group submenu-link">
+					<span class="text-sm">{item.title}</span>
+					<p>{item.desc}</p>
+				</a>
+			{/each}
 		</div>
 	{/if}
 </div>
