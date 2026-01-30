@@ -1,148 +1,74 @@
 <script lang="ts">
     // Dropdown
     let openMenu: string | null = null; // Track which menuy is open
-    const toggle = (menuName: string): void => {
-        if (openMenu === menuName) {
-            openMenu = null; // Close if the same dropdown is clicked
-        } else {
-            openMenu = menuName; // If one dropdown is already open, close it and open new dropdown
+    // List of all footer nav subheadings + links
+    const footerData = [
+        {
+            id: 'products',
+            title: 'Products',
+            links: ['ActiveTrader', 'Clearing', 'Credit Card', 'Predictions', 'Custody', 'Perpetuals', 'Exchange', 'Gemini Dollar', 'Staking', 'Wallet', 'Margin Trading']
+        },
+        {
+            id: 'institutions',
+            title: 'Institutions',
+            links: ['Exchange', 'Clearing', 'Custody', 'OTC', 'Staking', 'Wallet', 'Margin Trading']
+        },
+        {
+            id: 'company',
+            title: 'Company',
+            links: ['About', 'Blog', 'Careers', 'Contact us', 'Frontier Fund', 'Investors', 'Privacy Policy', 'Trust and Safety', 'Security', 'Gemini Trust User Agreement', 'Gemini Moonbase User Agreement', 'Digital Assets Disclosures']
+        },
+        {
+            id: 'resources',
+            title: 'Resources',
+            links: ['API Docs', 'Cryptopedia', 'Fees', 'Asset Listing Hub', 'Marketplace', 'Prices', 'Support Center', 'System Status', 'Referral Program', 'Trust Center', 'TradingView', 'Do Not Share My Personal Information']
         }
-    }
+    ];
+
+    const toggle = (menuName: string): void => {
+        openMenu = openMenu === menuName ? null : menuName;
+    };
 </script>
 
 <footer class="w-full px-5 pt-6 pb-10 text-primary bg-secondary">
-
-    <!-- Links -->
-    <nav class="flex flex-col gap-6 text-sm">
-        <div class="dropdown-item">
-            <button 
-                on:click={() => toggle('products')} 
-                class="dropdown-button"
-            >
-                <span>Products</span>
-                <img 
-                    src="/gemini/chevron-down.png" 
-                    alt="Arrow" 
-                    class="{openMenu === 'products' ? '' : '-rotate-90'}" 
-                />
-            </button>
-            {#if openMenu === 'products'}
-                <div class="footer-links">
-                    <a href="#">ActiveTrader</a>
-                    <a href="#">Clearing</a>
-                    <a href="#">Credit Card</a>
-                    <a href="#">Predictions</a>
-                    <a href="#">Custody</a>
-                    <a href="#">Perpetuals</a>
-                    <a href="#">Exchange</a>
-                    <a href="#">Gemini Dollar</a>
-                    <a href="#">Staking</a>
-                    <a href="#">Wallet</a>
-                    <a href="#">Margin Trading</a>
+    <nav class="flex flex-col xs:flex-row xs:flex-wrap xs:justify-between gap-6 text-sm">
+        {#each footerData as section}
+            <div class="dropdown-item">
+                <button 
+                    on:click={() => toggle(section.id)} 
+                    class="dropdown-button xs:hidden"
+                >
+                    <span>{section.title}</span>
+                    <img 
+                        src="/gemini/chevron-down.png" 
+                        alt="Arrow" 
+                        class="transition-transform duration-200 {openMenu === section.id ? '' : '-rotate-90'}" 
+                    />
+                </button>
+                <!-- Links -->
+                <div class="{openMenu === section.id ? 'flex' : 'hidden'} xs:flex footer-links">
+                    {#each section.links as link}
+                        <a href="#">{link}</a>
+                    {/each}
                 </div>
-            {/if}
-        </div>
-        <div class="dropdown-item">
-            <button 
-                on:click={() => toggle('institutions')} 
-                class="dropdown-button"
-            >
-                <span>Institutions</span>
-                <img 
-                    src="/gemini/chevron-down.png" 
-                    alt="Arrow" 
-                    class={openMenu === 'products' ? '' : '-rotate-90'}
-                />
-            </button>
-            {#if openMenu === 'institutions'}
-                <div class="footer-links">
-                    <a href="#">Exchange</a>
-                    <a href="#">Clearing</a>
-                    <a href="#">Custody</a>
-                    <a href="#">OTC</a>
-                    <a href="#">Staking</a>
-                    <a href="#">Wallet</a>
-                    <a href="#">Margin Trading</a>
-                </div>
-            {/if}
-        </div>
-        <div class="dropdown-item">
-            <button 
-                on:click={() => toggle('company')} 
-                class="dropdown-button"
-            >
-                <span>Company</span>
-                <img 
-                    src="/gemini/chevron-down.png" 
-                    alt="Arrow" 
-                    class={openMenu === 'products' ? '' : '-rotate-90'}
-                />
-            </button>
-            {#if openMenu === 'company'}
-                <div class="footer-links">
-                    <a href="#">About</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Contact us</a>
-                    <a href="#">Frontier Fund</a>
-                    <a href="#">Investors</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Trust and Safety</a>
-                    <a href="#">Security</a>
-                    <a href="#">Gemini Trust User Agreement</a>
-                    <a href="#">Gemini Moonbase User Agreement</a>
-                    <a href="#">Digital Assets Disclosures</a>
-                </div>
-            {/if}
-        </div>
-        <div class="dropdown-item">
-            <button 
-                on:click={() => toggle('resources')} 
-                class="dropdown-button"
-            >
-                <span>Resources</span>
-                <img 
-                    src="/gemini/chevron-down.png" 
-                    alt="Arrow" 
-                    class={openMenu === 'products' ? '' : '-rotate-90'}
-                />
-            </button>
-            {#if openMenu === 'resources'}
-                <div class="footer-links">
-                    <a href="#">About</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Contact us</a>
-                    <a href="#">Frontier Fund</a>
-                    <a href="#">Investors</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Trust and Safety</a>
-                    <a href="#">Security</a>
-                    <a href="#">Gemini Trust User Agreement</a>
-                    <a href="#">Gemini Moonbase User Agreement</a>
-                    <a href="#">Digital Assets Disclosures</a>
-                </div>
-            {/if}
-        </div>
+            </div>
+        {/each}
     </nav>
-
 </footer>
 
 <style>
     @reference '../../../routes/(recreates)/gemini/gemini.css';
 
-    nav {
-        > div {
-            @apply border-b-[0.5px] border-primary/30;
-        }
+    nav > div {
+        @apply border-b-[0.5px] border-primary/30 xs:border-none;
     }
     
-	a {
-        @apply w-full opacity-70;
+    a {
+        @apply w-full opacity-70 transition-opacity;
 
-		&:hover {
-			@apply opacity-100 cursor-pointer transition;
-		}
+        &:hover {
+            @apply opacity-100 cursor-pointer;
+        }
     }
 
     .dropdown-item {
@@ -153,11 +79,11 @@
         @apply flex justify-between items-center gap-2 w-full pb-3 font-medium text-sm;
         
         img {
-            @apply w-5;
+            @apply w-5 xs:hidden;
         }
     }
 
     .footer-links {
-        @apply flex flex-col gap-5 w-full pb-6 mt-3;
+        @apply flex-col gap-5 w-full pb-6 mt-3 xs:pb-0 xs:mt-0 xs:gap-3;
     }
 </style>
