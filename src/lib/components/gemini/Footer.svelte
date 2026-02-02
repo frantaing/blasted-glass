@@ -1,4 +1,7 @@
 <script lang="ts">
+    // Imports
+    import LangSelector from "./LangSelector.svelte";
+
     // Footer nav dropdown
     let openMenu: string | null = null; // Track which menuy is open
     // List of all footer nav subheadings + links
@@ -73,21 +76,12 @@
         </section>
         
         <!-- Language + Socials + Site Policy/Legal Notice + Fine Print(?) -->
-        <section class="flex flex-col lg:flex-row lg:justify-between items-center lg:w-full gap-7 xs:gap-8">
+        <section class="flex flex-col lg:flex-row lg:justify-between items-center lg:w-full gap-7 xs:gap-7">
             <!-- (MOBILE) Footer logo -->
-            <img src="/gemini/logo.png" alt="Footer logo" class="lg:hidden w-7" />
+            <img src="/gemini/logo.png" alt="Footer logo" class="lg:hidden w-8" />
     
             <!-- Language selector -->
-            <button class="flex justify-between items-center gap-5 p-3 bg-white/10 lg:bg-transparent rounded-full">
-                <div class="flex items-center gap-2">
-                    <!-- Globe icon -->
-                    <img src="/gemini/globe.png" alt="Language selector icon" class="h-5.5" />
-                    <!-- Language selected -->
-                    <span class="text-sm">English - Singapore</span>
-                </div>
-                <!-- Dropdown icon -->
-                <img src="/gemini/chevron-down.png" alt="Language selector dropdown" class="w-5">
-            </button>
+            <LangSelector />
     
             <!-- Socials -->
             <div class="flex gap-8.5">
@@ -159,4 +153,8 @@
     .orange-btn {
 		@apply px-4 py-[9px] font-medium font-secondary text-[15px] text-secondary bg-orange-btn rounded-full cursor-pointer transition hover:opacity-80;
 	}
+
+    .lang-item {
+        @apply w-full p-5 bg-white/10;
+    }
 </style>
