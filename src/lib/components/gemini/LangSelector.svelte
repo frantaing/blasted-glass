@@ -47,22 +47,22 @@
     on:mouseleave={handleMouseLeave}
 >
     <!-- The button itself -->
-    <button 
-        on:click|stopPropagation={toggleMenu}
-        aria-haspopup="listbox"
-        aria-expanded={isOpen}
-        class="flex justify-between items-center gap-5 p-3 bg-white/10 lg:bg-transparent rounded-full transition-all"
-    >
-        <div class="flex items-center gap-2">
-            <img src="/gemini/globe.png" alt="Language selector icon" class="h-5.5" />
-            <span class="text-sm">{selectedLanguage}</span>
-        </div>
-        <img 
-            src="/gemini/chevron-down.png" 
-            alt="Language selector dropdown" 
-            class="w-5 transition-transform {isOpen ? 'rotate-180' : ''}"
+    <div class="flex items-center gap-2 p-3 bg-white/10 lg:bg-transparent rounded-full">
+        <img src="/gemini/globe.png" alt="Language selector icon" class="h-5.5" />
+        <button 
+            on:click|stopPropagation={toggleMenu}
+            aria-haspopup="listbox"
+            aria-expanded={isOpen}
+            class="flex justify-between items-center gap-5 transition-all hover:opacity-80"
         >
-    </button>
+            <span class="text-sm">{selectedLanguage}</span>
+            <img 
+                src="/gemini/chevron-down.png" 
+                alt="Language selector dropdown" 
+                class="w-5 transition-transform {isOpen ? 'rotate-180' : ''}"
+            >
+        </button>
+    </div>
 
     <!-- Language menu -->
     {#if isOpen}
