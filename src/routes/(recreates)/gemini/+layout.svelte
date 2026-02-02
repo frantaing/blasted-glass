@@ -19,7 +19,7 @@
     <Navigation />
 
     <!-- Page(s) goes here! -->
-    <main class="w-full h-screen bg-pink-500">
+    <main class="w-full h-screen">
         {@render children()}
     </main>
 

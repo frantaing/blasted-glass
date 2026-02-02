@@ -67,7 +67,7 @@
     <!-- Language menu -->
     {#if isOpen}
         <div 
-            class="absolute z-50 bottom-full left-0 right-0 mb-2 p-4 flex flex-col max-w-xs bg-[#191919] rounded-lg overflow-hidden border border-white/5"
+            class="absolute z-50 bottom-full left-0 right-0 mb-2 p-4 flex flex-col max-w-xs bg-[#191919] rounded-xl overflow-hidden border border-white/5"
             role="listbox"
         >
             {#each languages as { label }}
@@ -88,6 +88,6 @@
     @reference '../../../routes/(recreates)/gemini/gemini.css';
 
     .lang-item {
-        @apply w-full mb-1.5 last:mb-0 pl-2.5 py-3 text-left text-sm text-white hover:bg-white/10 rounded-lg transition-colors;
+        @apply w-full mb-1.5 last:mb-0 pl-2.5 py-3 text-left text-sm text-white hover:bg-white/10 rounded-xl transition-colors;
     }
 </style>
